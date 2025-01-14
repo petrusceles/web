@@ -1,0 +1,25 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  compatibilityDate: "2024-11-01",
+  devtools: { enabled: true },
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/fonts"],
+  fonts: {
+    families: [
+      {
+        name: "Murecho",
+        provider: "google",
+      },
+    ],
+  },
+  tailwindcss: {
+    exposeConfig: true,
+    viewer: true,
+    config: {
+      theme: {
+        fontFamily: {
+          sans: ["Murecho"],
+        },
+      },
+    },
+  },
+});
