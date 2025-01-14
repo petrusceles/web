@@ -4,4 +4,7 @@
   <div class="py-20">
     <HomeHero></HomeHero>
   </div>
+  <div class="py-20">
+    <HomeExpertise />
+  </div>
 </template>
