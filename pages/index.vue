@@ -1,5 +1,7 @@
 <script setup></script>
 
 <template>
-  <HomeHero></HomeHero>
+  <div class="py-20">
+    <HomeHero></HomeHero>
+  </div>
 </template>

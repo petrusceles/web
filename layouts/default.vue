@@ -2,10 +2,10 @@
 
 <template>
   <div
-    class="flex justify-center my-10 text-sm gap-5 items-center lg:justify-end container mx-auto"
+    class="flex justify-center my-10 text-sm gap-5 items-center container mx-auto"
   >
     <div
-      class="flex gap-10 rounded-full border border-slate-950 px-6 py-3 font-light items-center navigation bg-slate-50 shadow-md"
+      class="flex gap-10 rounded-full border border-slate-950 px-6 py-3 font-light items-center navigation shadow-md"
     >
       <NuxtLink to="/"> Home </NuxtLink>
 

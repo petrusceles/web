@@ -18,6 +18,7 @@ export default defineNuxtConfig({
       theme: {
         fontFamily: {
           sans: ["Murecho"],
+          serif: ["Ms Madi"],
         },
       },
     },
