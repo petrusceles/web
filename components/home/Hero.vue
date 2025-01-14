@@ -4,7 +4,7 @@ import { Download, User } from "lucide-vue-next";
 
 <template>
   <div class="container mx-auto px-5">
-    <div class="grid grid-cols-1 gap-5 lg:gap-3 lg:flex">
+    <div class="grid grid-cols-1 gap-12 lg:gap-3 lg:flex">
       <!-- Half 1 -->
       <div
         class="grid grid-cols-1 gap-11 justify-items-center lg:w-1/2 lg:justify-items-start lg:gap-8 lg:mx-10"
