@@ -11,7 +11,6 @@ const userDesc = ref();
 
 onMounted(() => {
   const timeLine = gsap.timeline({
-    delay: 0.5,
     paused: true,
   });
 
@@ -46,7 +45,7 @@ onMounted(() => {
     heroCta.value.children,
     {
       duration: 1,
-      x: "-100",
+      x: "-50",
       autoAlpha: 0,
       stagger: 0.1,
       ease: "back.out(1.5)",

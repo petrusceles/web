@@ -2,7 +2,7 @@
 
 <template>
   <div class="py-20">
-    <HomeHero></HomeHero>
+    <!-- <HomeHero /> -->
   </div>
   <div class="py-20">
     <HomeExpertise />
