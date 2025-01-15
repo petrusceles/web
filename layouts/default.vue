@@ -1,7 +1,21 @@
-<script setup></script>
+<script setup>
+import gsap from "gsap";
+
+const headerNav = ref();
+
+onMounted(() => {
+  gsap.from(headerNav.value, {
+    duration: 1.5,
+    y: -100,
+    autoAlpha: 0,
+    ease: "elastic.out(1,0.4)",
+  });
+});
+</script>
 
 <template>
   <div
+    ref="headerNav"
     class="flex justify-center my-10 text-sm gap-5 items-center container mx-auto"
   >
     <div
