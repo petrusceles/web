@@ -21,6 +21,11 @@ export default defineNuxtConfig({
           sans: ["Murecho"],
           serif: ["Ms Madi"],
         },
+        extend: {
+          screens: {
+            xs: "480px",
+          },
+        },
       },
     },
   },
