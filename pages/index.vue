@@ -6,7 +6,7 @@
       <HomeHero />
     </div>
     <SeparatorExpertiseSeparator />
-    <div class="mx-auto sm:container py-36">
+    <div class="mx-auto sm:container py-36 expertise-scroll-trigger">
       <HomeExpertise />
     </div>
   </div>

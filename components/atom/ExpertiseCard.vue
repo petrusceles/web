@@ -31,8 +31,19 @@ const cardDesc = ref();
 
 const iconDesc = ref();
 
+const goButton = ref();
+
+const goButtonAnimation = computed(() => {
+  return gsap.to(goButton.value, {
+    paused: true,
+    scale: 0.95,
+    duration: 0.2,
+    // ease: "power1.in",
+  });
+});
+
 const gsapAnimation = computed(() => {
-  let timeLine = gsap.timeline();
+  let timeLine = gsap.timeline({});
   timeLine.to(cardIcon.value, {
     duration: 0.2,
     rotation: "355",
@@ -115,7 +126,7 @@ defineExpose({
     @click="onClick"
     ref="cardOuter"
     :class="[
-      !isActive && ' hover:scale-95 cursor-pointer border-slate-950 xl:h-16',
+      !isActive && ' hover:scale-95 cursor-pointer border-slate-950 h-full',
       isActive && 'border-slate-950',
     ]"
     class="border duration-300 ease-out w-full rounded-3xl flex relative px-6 pt-7 pb-5 items-center justify-evenly gap-5 bg-white/60"
@@ -144,9 +155,10 @@ defineExpose({
       <span class="text-lg lg:text-xl w-fit z-10 bg-white rounded-full">{{
         props.firstTitle
       }}</span>
-      <span class="text-2xl lg:text-2xl bg-white ps-5 pb-2 pe-2 rounded-full">{{
-        props.secondTitle
-      }}</span>
+      <span
+        class="text-2xl lg:text-2xl bg-white ps-5 pb-2 pe-2 lg:pe-1 rounded-full"
+        >{{ props.secondTitle }}</span
+      >
     </div>
     <div class="grid grid-cols-1 gap-5" ref="cardDesc">
       <p
@@ -162,6 +174,9 @@ defineExpose({
       </p>
       <button
         :class="[!isActive && 'hidden']"
+        ref="goButton"
+        @mouseenter="goButtonAnimation?.play()"
+        @mouseleave="goButtonAnimation?.reverse()"
         class="rounded-full border border-slate-950 font-light flex items-center w-fit px-6 py-3 text-sm gap-3 bg-white lg:text-lg"
       >
         <span style="transform: translateY(-7%)"

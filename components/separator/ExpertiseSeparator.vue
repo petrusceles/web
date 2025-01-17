@@ -1,5 +1,8 @@
 <script setup>
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 const dividerHead = ref();
 
 onMounted(() => {
@@ -9,6 +12,10 @@ onMounted(() => {
     duration: 0.5,
     stagger: 0.1,
     ease: "back.out(1.5)",
+    scrollTrigger: {
+      trigger: ".expertise-scroll-trigger",
+      start: "top center",
+    },
   });
 });
 </script>

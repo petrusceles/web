@@ -1,20 +1,23 @@
 <script setup>
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const mask = ref();
 
-const animation = computed(() => {
-  return gsap.from(mask.value, {
+onMounted(() => {
+  gsap.from(mask.value, {
     width: 0,
     autoAlpha: 0,
     duration: 2,
     ease: "power3.out",
     overflow: "hidden",
+    scrollTrigger: {
+      trigger: ".expertise-scroll-trigger",
+      start: "top center",
+    },
   });
-});
-
-onMounted(() => {
-  animation.value.play();
 });
 </script>
 
@@ -32,7 +35,7 @@ onMounted(() => {
 .divider {
   height: 500px;
   width: 100vw;
-  border: solid 2px black;
+  border: solid 1px black;
   border-color: black transparent transparent transparent;
   border-radius: 50%/50px 50px 0 0;
 }

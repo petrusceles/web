@@ -24,7 +24,6 @@ const datas = ref([
     secondTitle: "Application",
   },
 ]);
-const onProcess = ref(false);
 const makeLast = async (index) => {
   if (true) {
     const state = Flip.getState(expertiseCardParent.value);
@@ -59,9 +58,27 @@ const makeLast = async (index) => {
   }
 };
 
+const expertises = ref();
+
 onMounted(async () => {
   // console.log(expertiseCards.value);
-  expertiseCards.value[2]?.gsapAnimation?.play();
+  let timeLine = gsap.timeline({
+    paused: true,
+    scrollTrigger: {
+      trigger: ".expertise-scroll-trigger",
+      start: "top center",
+    },
+  });
+  timeLine.from(expertises.value.children, {
+    duration: 0.75,
+    stagger: 0.2,
+    ease: "back.out(1.2)",
+    autoAlpha: 0,
+    y: "+100",
+    onStart: () => {
+      expertiseCards.value[2]?.gsapAnimation?.play();
+    },
+  });
 });
 </script>
 
@@ -69,7 +86,8 @@ onMounted(async () => {
   <!-- Main Content -->
   <div
     style="max-width: 60rem"
-    class="grid grid-cols-2 mx-auto gap-8 px-8 lg:grid-flow-col lg:grid-cols-3 xl:gap-y-20"
+    ref="expertises"
+    class="grid grid-cols-2 mx-auto gap-8 px-8 lg:grid-flow-col lg:grid-cols-4 expertise-main-selector"
   >
     <div
       ref="expertiseCardParent"
@@ -77,8 +95,8 @@ onMounted(async () => {
       :key="data?.id"
       @click="makeLast(index)"
       :class="[
-        index == 2 && 'col-span-2 lg:row-span-2 lg:col-span-2',
-        index != 2 && 'col-span-2 xs:col-span-1 ',
+        index == 2 && 'col-span-2 lg:row-span-4 lg:col-span-3',
+        index != 2 && 'col-span-2 xs:col-span-1 self-start',
       ]"
       class="justify-center flex items-baseline h-fit"
     >
@@ -87,6 +105,7 @@ onMounted(async () => {
         :id="data?.id"
         :firstTitle="data.firstTitle"
         :secondTitle="data.secondTitle"
+        :index="index"
       />
     </div>
   </div>
