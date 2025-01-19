@@ -21,7 +21,10 @@ onMounted(() => {
 </script>
 <template>
   <div class="relative flex">
-    <AtomCurveDivider />
+    <!-- <AtomCurveDivider /> -->
+    <div
+      class="absolute h-full w-48 bg-slate-200/50 rounded-full top-0 left-1/2 -translate-x-1/2"
+    ></div>
     <div
       class="absolute left-1/2 -translate-x-1/2 -top-[3.5rem] flex items-center justify-center -space-x-24"
       ref="dividerHead"

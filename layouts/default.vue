@@ -16,7 +16,7 @@ onMounted(() => {
 <template>
   <div
     ref="headerNav"
-    class="flex justify-center text-sm gap-5 items-center container mx-auto sticky top-10 z-50"
+    class="flex justify-center text-sm gap-5 items-center container mx-auto top-10 z-50 fixed left-1/2 -translate-x-1/2"
   >
     <div
       class="flex gap-10 rounded-full border border-slate-950 px-6 py-3 font-light items-center navigation shadow-md bg-white"
@@ -27,7 +27,7 @@ onMounted(() => {
       <NuxtLink>About</NuxtLink>
     </div>
   </div>
-  <div class="relative">
+  <div class="relative h-full">
     <slot></slot>
   </div>
 </template>

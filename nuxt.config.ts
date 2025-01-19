@@ -31,6 +31,6 @@ export default defineNuxtConfig({
   },
 
   svgo: {
-    defaultImport: "raw",
+    defaultImport: "component",
   },
 });
