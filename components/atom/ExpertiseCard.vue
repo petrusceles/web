@@ -66,38 +66,41 @@ defineExpose({
 <template>
   <div
     ref="cardSelector"
-    class="rounded-3xl border border-slate-950 px-5 pb-5 pt-6 gap-2 relative flex h-fit"
+    class="rounded-3xl border border-slate-950 px-3 pb-3 pt-4 md:px-5 md:pb-5 md:pt-6 gap-2 relative flex h-fit"
   >
     <div
       ref="cardTitleSelector"
-      class="absolute bg-white px-2 text-2xl xl:text-3xl font-semibold top-0 -translate-y-1/2"
+      class="absolute bg-white px-2 font-semibold top-0 -translate-y-1/2 rounded-full text-2xl lg:text-3xl"
     >
       {{ props.firstTitle }} {{ props.secondTitle }}
     </div>
-    <div class="grid grid-cols-1 gap-5">
-      <div class="text-sm font-light text-justify" ref="cardDescSelector">
+    <div class="grid grid-cols-1 gap-3">
+      <div
+        class="text-xs lg:text-sm font-light text-justify"
+        ref="cardDescSelector"
+      >
         Transforming ideas into
-        <span class="font-bold text-base leading-5 lg:leading-4 md:text-lg"
+        <span class="font-bold text-base lg:text-lg lg:leading-4 leading-5"
           >Dynamic Web Applications</span
         >
         that not only meet user needs but also elevate their experience. Let's
         build something amazing together!
       </div>
       <button
-        class="ps-4 pe-8 py-2 rounded-full flex items-center justify-center border border-slate-950 gap-2 flex-nowrap w-fit max-h-10 relative"
+        class="ps-4 pe-7 py-2 rounded-full flex items-center justify-center border border-slate-950 gap-2 flex-nowrap w-fit max-h-10 relative lg:py-3 lg:ps-6 lg:pe-9"
         ref="cardButtonSelector"
       >
-        <span class="text-sm -translate-y-0.5 font-light"
+        <span class="text-xs lg:text-base -translate-y-0.5 font-light"
           >Explore My Web Applications</span
         >
         <ArrowRight
-          class="h-10 w-10 bg-white absolute rounded-full right-0 translate-x-1/3"
+          class="h-8 w-8 bg-white absolute rounded-full right-0 translate-x-1/3"
           :stroke-width="0.5"
         />
       </button>
     </div>
     <div
-      class="absolute top-0 -translate-y-1/2 bg-white rounded-full p-2"
+      class="absolute top-0 -translate-y-1/2 bg-white rounded-full p-2 z-0"
       style="left: 85%"
       ref="cardIconSelector"
     >

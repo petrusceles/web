@@ -27,11 +27,10 @@ const datas = ref([
 
 const expertises = ref();
 
-onMounted(async () => {
-  // console.log(expertiseCards.value);gs
-  const animation = gsap.timeline();
+const animation = computed(() => {
+  const val = gsap.timeline();
   for (let i = 0; i < expertiseCardsParent.value?.length; i++) {
-    animation.from(
+    val.from(
       expertiseCardsParent.value[i],
       {
         duration: 0.3,
@@ -41,8 +40,13 @@ onMounted(async () => {
       },
       "<0.1"
     );
-    animation.add(expertiseCards.value[i]?.animation, "<0.3");
+    val.add(expertiseCards.value[i]?.animation, "<0.3");
   }
+  return val;
+});
+
+defineExpose({
+  animation,
 });
 </script>
 
@@ -50,7 +54,7 @@ onMounted(async () => {
   <!-- Main Content -->
   <div
     ref="expertises"
-    class="grid grid-cols-1 gap-12 expertise-main-selector w-full lg:flex"
+    class="grid grid-cols-1 gap-8 expertise-main-selector w-full lg:flex absolute left-1/2 -translate-x-1/2 px-10 xl:px-20 top-[55%] -translate-y-1/2"
   >
     <div
       ref="expertiseCardsParent"

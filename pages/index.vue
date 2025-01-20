@@ -2,45 +2,276 @@
 import gsap from "gsap";
 import { Observer } from "gsap/Observer";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(Observer);
 gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
-onMounted(() => {});
+const selectedWorksSelector = ref();
+const selectedWorksCurrentIndex = ref(0);
+const selectedWorksAnimating = ref(false);
+
+const layoutOrder = [
+  ".hero-container",
+  ".expertise-container",
+  ".selected-works-container",
+  ".footer-container",
+];
+const selectedWorksClamp = computed(() => {
+  return gsap.utils.clamp(-1, selectedWorksSelector.value?.workCards?.length);
+});
+
+const selectedWorksGoToSection = (index, direction) => {
+  index = selectedWorksClamp.value(index);
+  let fromTop = direction === -1;
+  if (index > selectedWorksSelector.value?.workCards?.length - 1 || index < 0) {
+    globalObserver.value?.enable();
+    selectedWorksObserver.value?.disable();
+    if (fromTop) {
+      !globalAnimating.value && gotoSection(globalCurrentIndex.value + 1, 1);
+    } else {
+      !globalAnimating.value && gotoSection(globalCurrentIndex.value - 1, -1);
+    }
+    return;
+  }
+  selectedWorksAnimating.value = true;
+
+  let tl = gsap.timeline({
+    onComplete: () => {
+      selectedWorksAnimating.value = false;
+    },
+  });
+
+  if (index >= 0) {
+    if (fromTop) {
+      tl.add(
+        selectedWorksSelector.value?.workCards[selectedWorksCurrentIndex.value]
+          ?.timeLineOut
+      );
+      tl.add(selectedWorksSelector.value?.workCards[index]?.timeLineIn, "<0.0");
+    } else {
+      tl.add(
+        selectedWorksSelector.value?.workCards[selectedWorksCurrentIndex.value]
+          ?.timeLineInReverse
+      );
+      tl.add(
+        selectedWorksSelector.value?.workCards[index]?.timeLineOutReverse,
+        "<0.5"
+      );
+    }
+  }
+
+  selectedWorksCurrentIndex.value = index;
+};
+
+const heroSelector = ref();
+const expertiseSelector = ref();
+const footerSelector = ref();
+
+const initialAnimationEachSection = computed(() => {
+  return [
+    heroSelector.value?.animation,
+    expertiseSelector.value?.animation,
+    selectedWorksSelector.value?.workCards[selectedWorksCurrentIndex.value]
+      ?.timeLineIn,
+    null,
+  ];
+});
+const globalAnimating = ref(false);
+const globalCurrentIndex = ref(-1);
+const globalClamp = computed(() => {
+  return gsap.utils.clamp(0, layoutOrder.length);
+});
+
+let globalScrollTimeout = ref(
+  gsap.delayedCall(0.0, () => (globalAnimating.value = false)).pause()
+);
+
+function gotoSection(index, direction) {
+  globalAnimating.value = true;
+
+  index = globalClamp.value(index);
+
+  let fromTop = direction === -1,
+    dFactor = fromTop ? -1 : 1,
+    tl = gsap.timeline({
+      onComplete: () => {
+        globalAnimating.value = false;
+      },
+    });
+
+  if (
+    (fromTop && globalCurrentIndex.value === index) ||
+    (!fromTop && globalCurrentIndex.value === layoutOrder.length - 1)
+  ) {
+    return;
+  }
+
+  gsap.set(layoutOrder[index], {
+    zIndex: 1,
+  });
+  gsap.set(layoutOrder[globalCurrentIndex.value], {
+    zIndex: 0,
+  });
+  tl.fromTo(
+    layoutOrder[index],
+    {
+      yPercent: (i) => (i ? -100 * dFactor : 100 * dFactor),
+    },
+    {
+      autoAlpha: 1,
+      yPercent: 0,
+      duration: 1,
+      ease: "power2.inOut",
+    }
+  );
+  tl.add(initialAnimationEachSection.value[index], "<0.3");
+
+  if (globalCurrentIndex.value >= 0) {
+    // The first time this function runs, current is -1
+    tl.to(
+      layoutOrder[globalCurrentIndex.value],
+      {
+        autoAlpha: 0,
+        yPercent: (i) => (i ? 100 * dFactor : -100 * dFactor),
+        duration: 0.75,
+        ease: "power2.inOut",
+      },
+      "<0.2"
+    );
+  }
+
+  globalCurrentIndex.value = index;
+}
+
+const selectedWorksObserver = ref();
+
+const globalObserver = ref();
+
+onMounted(() => {
+  selectedWorksObserver.value = Observer.create({
+    target: ".selected-works-container",
+    type: "wheel",
+    wheelSpeed: 0.1,
+    onDown: () => {
+      !selectedWorksAnimating.value &&
+        !globalAnimating.value &&
+        selectedWorksGoToSection(selectedWorksCurrentIndex.value + 1, -1);
+    },
+    onUp: () => {
+      !selectedWorksAnimating.value &&
+        !globalAnimating.value &&
+        selectedWorksGoToSection(selectedWorksCurrentIndex.value - 1, 1);
+    },
+    tolerance: 10,
+    preventDefault: true,
+  });
+
+  globalObserver.value = Observer.create({
+    type: "wheel",
+    wheelSpeed: 0.1,
+    onDown: () => {
+      if (globalCurrentIndex.value == 2 && globalObserver.value?.isEnabled) {
+        globalObserver.value?.disable();
+        selectedWorksObserver.value?.enable();
+      } else {
+        !globalAnimating.value && gotoSection(globalCurrentIndex.value + 1, 1);
+      }
+    },
+    onUp: () => {
+      if (globalCurrentIndex.value == 2 && globalObserver.value?.isEnabled) {
+        globalObserver.value?.disable();
+        selectedWorksObserver.value?.enable();
+      } else {
+        !globalAnimating.value && gotoSection(globalCurrentIndex.value - 1, -1);
+      }
+    },
+    tolerance: 10,
+    preventDefault: true,
+  });
+  gotoSection(0, 1);
+});
 </script>
 
 <template>
-  <div>
-    <div
-      class="hero-container bg-white flex items-center"
-      style="height: 100vh"
-    >
-      <div class="mx-auto container">
-        <HomeHero />
+  <div class="container-wrapper">
+    <section class="hero-container flex items-center relative bg-white">
+      <div
+        style="height: 1px"
+        class="bg-slate-950 w-full absolute left-1/2 top-0 -translate-x-1/2"
+      ></div>
+      <div
+        style="height: 1px"
+        class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
+      ></div>
+      <div class="mx-auto container px-10">
+        <HomeHero ref="heroSelector" />
       </div>
-    </div>
+    </section>
 
-    <div
-      class="expertise-container px-10 flex items-center"
-      style="height: 100vh"
+    <section class="expertise-container flex items-center relative bg-white">
+      <div
+        style="height: 1px"
+        class="bg-slate-950 w-full absolute left-1/2 top-0 -translate-x-1/2"
+      ></div>
+      <div
+        style="height: 1px"
+        class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
+      ></div>
+
+      <h2
+        class="text-slate-950/10 z-50 absolute lg:text-9xl font-semibold text-8xl left-0 top-[15%] lg:top-[30%] px-20"
+      >
+        Areas of Expertise
+      </h2>
+      <HomeExpertise ref="expertiseSelector" />
+    </section>
+
+    <section
+      class="selected-works-container w-full flex items-center relative bg-white"
     >
       <div
-        class="mx-auto sm:container expertise-scroll-trigger w-full grid grid-cols-1 gap-10 relative"
-      >
-        <h2
-          class="lg:text-8xl xl:text-9xl font-semibold text-7xl lg:text-nowrap text-slate-950/20"
-        >
-          Areas of Expertise
-        </h2>
-        <HomeExpertise />
-      </div>
-    </div>
+        style="height: 1px"
+        class="bg-slate-950 w-full absolute left-1/2 top-0 -translate-x-1/2"
+      ></div>
+      <div
+        style="height: 1px"
+        class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
+      ></div>
 
-    <!-- <div
-      class="mx-auto sm:container py-36 px-8 work-container"
-      style="height: 100vh"
-    >
-      <HomeSelectedWorks />
-    </div> -->
+      <h2
+        class="lg:text-9xl font-semibold text-8xl text-end md:text-center text-slate-950/10 h-fit absolute z-10 top-[15%] sm:top-[25%] left-1/2 -translate-x-1/2 md:text-nowrap px-10 xl:px-20"
+      >
+        Selected Works
+      </h2>
+      <HomeSelectedWorks ref="selectedWorksSelector" />
+    </section>
+
+    <section class="footer-container px-10 flex items-center bg-white relative">
+      <div
+        style="height: 1px"
+        class="bg-slate-950 w-full absolute left-1/2 top-0 -translate-x-1/2"
+      ></div>
+      <div
+        style="height: 1px"
+        class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
+      ></div>
+      <div
+        class="mx-auto sm:container py-36 px-8 work-container grid grid-cols-1 w-full gap-10 content-start justify-items-stretch"
+      >
+        <HomeFooter />
+      </div>
+    </section>
   </div>
 </template>
+
+<style lang="scss" scoped>
+section {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  visibility: hidden;
+}
+</style>
