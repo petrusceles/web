@@ -5,6 +5,15 @@ const props = defineProps({
   title: {
     required: true,
   },
+  description: {
+    required: true,
+  },
+  tech: {
+    required: true,
+  },
+  tag: {
+    required: true,
+  },
 });
 
 const poleSelector = ref();
@@ -27,11 +36,6 @@ const timeLineOut = computed(() => {
     },
   });
 
-  // val.set(globalSelector.value, {
-  //   position: "absolute",
-  //   top: 0,
-  // });
-
   val.fromTo(
     leftSelector.value,
     {
@@ -42,7 +46,7 @@ const timeLineOut = computed(() => {
       autoAlpha: 0,
       x: "-300",
       duration: 0.5,
-      ease: "power3.out",
+      ease: "back.in(1.2)",
     }
   );
   val.fromTo(
@@ -55,7 +59,7 @@ const timeLineOut = computed(() => {
       autoAlpha: 0,
       x: "300",
       duration: 0.5,
-      ease: "power3.out",
+      ease: "back.in(1.2)",
     },
     "<0.0"
   );
@@ -68,10 +72,6 @@ const timeLineIn = computed(() => {
       timeLineIn.value?.kill();
     },
   });
-
-  // val.set(globalSelector.value, {
-  //   position: "static",
-  // });
 
   val.fromTo(
     globalSelector.value,
@@ -125,7 +125,7 @@ const timeLineIn = computed(() => {
       width: "90%",
       ease: "back.out(1.2)",
     },
-    "<0.2"
+    "<0.3"
   );
 
   val.fromTo(
@@ -146,7 +146,7 @@ const timeLineIn = computed(() => {
   val.from(
     categoriesSelector.value,
     {
-      duration: 0.75,
+      duration: 0.5,
       rotation: 45,
       ease: "back.out(1.7)",
       autoAlpha: 0,
@@ -157,17 +157,17 @@ const timeLineIn = computed(() => {
   val.from(
     titleSelector.value,
     {
-      duration: 1,
+      duration: 0.5,
       x: "-50",
       ease: "back.out(1.2)",
       autoAlpha: 0,
     },
-    "<0.2"
+    "<-0.5"
   );
   val.from(
     subtitleSelector.value,
     {
-      duration: 1,
+      duration: 0.5,
       x: "-50",
       ease: "back.out(1.2)",
       autoAlpha: 0,
@@ -205,34 +205,140 @@ const timeLineOutReverse = computed(() => {
   });
   // val.set(globalSelector.value, {
   //   position: "static",
-  // });
+  // });  val.fromTo(
+
+  val.set(leftSelector.value, {
+    x: 0,
+    autoAlpha: 1,
+  });
+  val.set(rightSelector.value, {
+    x: 0,
+    autoAlpha: 1,
+  });
+
   val.fromTo(
-    leftSelector.value,
+    globalSelector.value,
     {
-      x: "-100",
       alpha: 0,
+      scale: 0.5,
     },
     {
-      x: 0,
-      autoAlpha: 1,
-      duration: 0.75,
-      ease: "power1.inOut",
-    }
-  );
-  val.fromTo(
-    rightSelector.value,
-    {
-      x: "100",
-      alpha: 0,
-    },
-    {
-      x: 0,
-      autoAlpha: 1,
-      duration: 0.75,
-      ease: "power1.inOut",
+      alpha: 1,
+      duration: 0.5,
+      ease: "power3.inOut",
+      scale: 1,
     },
     "<0.0"
   );
+  val.from(
+    poleSelector.value,
+    {
+      duration: 0.5,
+      y: "+50",
+      ease: "back.out(1.2)",
+      autoAlpha: 0,
+    },
+    "<0.1"
+  );
+
+  val.fromTo(
+    lineSelector.value,
+    {
+      height: 0,
+      autoAlpha: 0,
+    },
+    {
+      duration: 0.5,
+      height: "80%",
+      ease: "back.out(1.2)",
+      autoAlpha: 1,
+    },
+    "<0.2"
+  );
+
+  val.fromTo(
+    cardBelowSelector.value,
+    {
+      // rotation: 5,
+      width: 0,
+      autoAlpha: 0,
+    },
+    {
+      autoAlpha: 1,
+      duration: 0.5,
+      width: "90%",
+      ease: "back.out(1.2)",
+    },
+    "<0.3"
+  );
+
+  val.fromTo(
+    cardAboveSelector.value,
+    {
+      width: 0,
+      autoAlpha: 0,
+    },
+    {
+      autoAlpha: 1,
+      duration: 0.5,
+      width: "95%",
+      ease: "back.out(1.2)",
+    },
+    "<0.2"
+  );
+
+  val.from(
+    categoriesSelector.value,
+    {
+      duration: 0.5,
+      rotation: 45,
+      ease: "back.out(1.7)",
+      autoAlpha: 0,
+    },
+    "<0.2"
+  );
+
+  val.from(
+    titleSelector.value,
+    {
+      duration: 0.5,
+      x: "-50",
+      ease: "back.out(1.2)",
+      autoAlpha: 0,
+    },
+    "<-0.5"
+  );
+  val.from(
+    subtitleSelector.value,
+    {
+      duration: 0.5,
+      x: "-50",
+      ease: "back.out(1.2)",
+      autoAlpha: 0,
+    },
+    "<0.1"
+  );
+  val.from(
+    techListSelector.value,
+    {
+      duration: 0.5,
+      y: "+50",
+      ease: "back.out(1.2)",
+      autoAlpha: 0,
+    },
+    "<0.2"
+  );
+  val.from(
+    techStackSelector.value,
+    {
+      duration: 0.5,
+      y: "+10",
+      ease: "back.out(1.2)",
+      autoAlpha: 0,
+    },
+    "<0.2"
+  );
+  // return val;
   return val;
 });
 
@@ -251,7 +357,7 @@ const timeLineInReverse = computed(() => {
     },
     {
       alpha: 0,
-      duration: 1,
+      duration: 0.5,
       ease: "power3.inOut",
       scale: 0.5,
     }
@@ -314,18 +420,17 @@ defineExpose({
           transform: skew(-15deg) translateX(100%) translateY(100%)
             rotate(-6deg);
           transform-origin: 0% 100%;
-          width: 7.5rem;
-          right: 3%;
+          right: 0%;
           height: 30px;
         "
         ref="categoriesSelector"
-        class="absolute text-sm border border-slate-950 font-extralight flex justify-end items-center bg-slate-100 rounded-lg -z-10 px-2 pb-1"
+        class="absolute text-sm text-nowrap border border-s-0 border-slate-950 font-extralight flex justify-end items-center bg-slate-100 rounded-lg -z-10 pe-2 ps-3 pb-1"
       >
-        Company work
+        {{ props.tag }}
       </div>
     </div>
 
-    <div class="flex flex-col pb-9 md:w-1/2 md:pt-20 gap-2" ref="rightSelector">
+    <div class="flex flex-col pb-9 md:w-1/2 md:pt-14 gap-2" ref="rightSelector">
       <h2 class="font-bold p-0 m-0 text-3xl lg:text-4xl" ref="titleSelector">
         {{ props.title }}
       </h2>
@@ -333,11 +438,7 @@ defineExpose({
         class="font-light text-xs text-justify lg:text-sm"
         ref="subtitleSelector"
       >
-        Building an app that bridges the gap between the Directorate General of
-        Minerals and Coal and business entities, MinerbaOne revolutionizes the
-        mining licensing process. This platform empowers companies to seamlessly
-        propose licenses, report progress, and track sales, driving efficiency
-        and transparency in the mining sector.
+        {{ props.description }}
       </p>
 
       <div
@@ -350,7 +451,7 @@ defineExpose({
         >
           Tech stack
         </h3>
-        Javascript, Typescript, CSS, HTML, Vue
+        <template v-for="stack in props.tech"> {{ stack }}, </template>
       </div>
     </div>
   </div>

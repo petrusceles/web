@@ -40,16 +40,16 @@ const selectedWorksGoToSection = (index, direction) => {
   let tl = gsap.timeline({
     onComplete: () => {
       selectedWorksAnimating.value = false;
+      // selectedWorksScrollTimeout.value.restart(true);
     },
   });
-
   if (index >= 0) {
     if (fromTop) {
       tl.add(
         selectedWorksSelector.value?.workCards[selectedWorksCurrentIndex.value]
           ?.timeLineOut
       );
-      tl.add(selectedWorksSelector.value?.workCards[index]?.timeLineIn, "<0.0");
+      tl.add(selectedWorksSelector.value?.workCards[index]?.timeLineIn, "<0.1");
     } else {
       tl.add(
         selectedWorksSelector.value?.workCards[selectedWorksCurrentIndex.value]
@@ -57,7 +57,7 @@ const selectedWorksGoToSection = (index, direction) => {
       );
       tl.add(
         selectedWorksSelector.value?.workCards[index]?.timeLineOutReverse,
-        "<0.5"
+        "<0.1"
       );
     }
   }
@@ -75,7 +75,7 @@ const initialAnimationEachSection = computed(() => {
     expertiseSelector.value?.animation,
     selectedWorksSelector.value?.workCards[selectedWorksCurrentIndex.value]
       ?.timeLineIn,
-    null,
+    footerSelector.value?.animation,
   ];
 });
 const globalAnimating = ref(false);
@@ -84,8 +84,8 @@ const globalClamp = computed(() => {
   return gsap.utils.clamp(0, layoutOrder.length);
 });
 
-let globalScrollTimeout = ref(
-  gsap.delayedCall(0.0, () => (globalAnimating.value = false)).pause()
+let selectedWorksScrollTimeout = ref(
+  gsap.delayedCall(0.1, () => (selectedWorksAnimating.value = false)).pause()
 );
 
 function gotoSection(index, direction) {
@@ -169,6 +169,7 @@ onMounted(() => {
   });
 
   globalObserver.value = Observer.create({
+    target: window,
     type: "wheel",
     wheelSpeed: 0.1,
     onDown: () => {
@@ -257,11 +258,8 @@ onMounted(() => {
         style="height: 1px"
         class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
       ></div>
-      <div
-        class="mx-auto sm:container py-36 px-8 work-container grid grid-cols-1 w-full gap-10 content-start justify-items-stretch"
-      >
-        <HomeFooter />
-      </div>
+
+      <HomeFooter ref="footerSelector" />
     </section>
   </div>
 </template>

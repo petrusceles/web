@@ -17,14 +17,26 @@ const workData = [
   {
     id: 1,
     title: "MinerbaOne",
+    description:
+      "Building an app that bridges the gap between the Directorate General of Minerals and Coal and business entities, MinerbaOne revolutionizes the mining licensing process. This platform empowers companies to seamlessly propose licenses, report progress, and track sales, driving efficiency and transparency in the mining sector.",
+    tech: ["HTML", "CSS", "JavaScript", "Vue"],
+    tag: "Company Work",
   },
   {
     id: 2,
     title: "ABTechnology",
+    description:
+      "Building a mobile app that connects to an ESP32 via BLE, I created a powerful tool for controlling the ignition timing of CDI systems in motors. Users can configure timing maps based on RPM and degrees, while monitoring real-time data such as combustion temperature, speed, RPM, and voltage. With features like backfire and rumble idle, this app enhances performance and adds a rhythmic flair to the ignition process.",
+    tech: ["Flutter", "Dart", "C", "Arduino", "ESP32"],
+    tag: "Client Work",
   },
   {
     id: 3,
     title: "Low Quality Face Recognition",
+    description:
+      "Conducting research on low-quality face recognition, I utilized a modified ResNet backbone to enhance performance while reducing parameters by 1 million. By implementing AdaFace as the loss mechanism, I achieved a 4% improvement in rank-1 verification for low-quality images, demonstrating the effectiveness of tailored architectures in challenging conditions.",
+    tech: ["Python", "PyTorch", "JupyterNotebook"],
+    tag: "Personal Research",
   },
 ];
 
@@ -58,7 +70,13 @@ defineExpose({
 </script>
 <template>
   <template v-for="data in workData">
-    <AtomWorkCard :title="data.title" ref="workCards" />
+    <AtomWorkCard
+      :title="data.title"
+      :description="data.description"
+      ref="workCards"
+      :tech="data.tech"
+      :tag="data.tag"
+    />
   </template>
 </template>
 

@@ -105,7 +105,7 @@ defineExpose({
   </div>
 </template>
 
-<style>
+<style scoped>
 .text-stroke-3 {
   text-shadow: -1px -1px 0 #020617, 1px -1px 0 #020617, -1px 1px 0 #020617,
     1px 1px 0 #020617;

@@ -10,18 +10,55 @@ const expertiseCards = ref();
 const datas = ref([
   {
     id: 1,
-    firstTitle: "Machine",
-    secondTitle: "Learning",
+    title: "Machine Learning",
+    cta: "Unlock the Power of Data",
+    description: [
+      {
+        text: "Harnessing the power of machine learning to unlock insights and drive innovation—partner with me to",
+        bold: false,
+      },
+      {
+        text: "turn data into actionable strategies!",
+        bold: true,
+      },
+    ],
+    icon: "BrainCircuit",
   },
   {
     id: 2,
-    firstTitle: "Web",
-    secondTitle: "Application",
+    title: "Web Application",
+    cta: "Explore My Web Applications",
+    description: [
+      {
+        text: "Transforming ideas into",
+        bold: false,
+      },
+      {
+        text: "dynamic web applications",
+        bold: true,
+      },
+      {
+        text: "that not only meet user needs but also elevate their experience—let's build something amazing together!",
+        bold: false,
+      },
+    ],
+    icon: "PictureInPicture2",
   },
   {
     id: 3,
-    firstTitle: "Mobile",
-    secondTitle: "Application",
+    title: "Mobile Application",
+    cta: "Check Out My Mobile Apps",
+    description: [
+      {
+        text: "Creating intuitive mobile applications ",
+        bold: true,
+      },
+      {
+        text: "that connect users with technology seamlessly—let's collaborate to bring your vision to life on every device!",
+        bold: false,
+      },
+    ],
+    icon: "TabletSmartphone",
   },
 ]);
 
@@ -63,9 +100,11 @@ defineExpose({
     >
       <AtomExpertiseCard
         ref="expertiseCards"
+        :name="data?.icon"
         :id="data?.id"
-        :firstTitle="data.firstTitle"
-        :secondTitle="data.secondTitle"
+        :cta="data?.cta"
+        :description="data?.description"
+        :title="data.title"
         :index="index"
       />
     </div>
