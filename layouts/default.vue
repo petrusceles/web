@@ -23,7 +23,7 @@ onMounted(() => {
     >
       <NuxtLink to="/"> Home </NuxtLink>
 
-      <NuxtLink>Portfolio</NuxtLink>
+      <NuxtLink to="/portfolio">Portfolio</NuxtLink>
       <NuxtLink>About</NuxtLink>
     </div>
   </div>
@@ -34,7 +34,7 @@ onMounted(() => {
 
 <style scoped>
 .navigation * {
-  @apply min-w-20 rounded-full border text-center py-1.5 text-sm border-transparent text-slate-500;
+  @apply min-w-20 rounded-full border text-center py-1.5 text-xs border-transparent text-slate-500;
 }
 
 .router-link-active {

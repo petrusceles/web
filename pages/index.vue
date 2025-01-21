@@ -12,12 +12,26 @@ const selectedWorksSelector = ref();
 const selectedWorksCurrentIndex = ref(0);
 const selectedWorksAnimating = ref(false);
 
-const layoutOrder = [
-  ".hero-container",
-  ".expertise-container",
-  ".selected-works-container",
-  ".footer-container",
-];
+const heroContainer = ref();
+const expertiseContainer = ref();
+const selectedWorksContainer = ref();
+const footerContainer = ref();
+
+const layoutOrder = computed(() => {
+  return [
+    heroContainer.value,
+    expertiseContainer.value,
+    selectedWorksContainer.value,
+    footerContainer.value,
+  ];
+});
+
+// const layoutOrder = [
+//   ".hero-container",
+//   ".expertise-container",
+//   ".selected-works-container",
+//   ".footer-container",
+// ];
 const selectedWorksClamp = computed(() => {
   return gsap.utils.clamp(-1, selectedWorksSelector.value?.workCards?.length);
 });
@@ -81,12 +95,8 @@ const initialAnimationEachSection = computed(() => {
 const globalAnimating = ref(false);
 const globalCurrentIndex = ref(-1);
 const globalClamp = computed(() => {
-  return gsap.utils.clamp(0, layoutOrder.length);
+  return gsap.utils.clamp(0, layoutOrder.value?.length);
 });
-
-let selectedWorksScrollTimeout = ref(
-  gsap.delayedCall(0.1, () => (selectedWorksAnimating.value = false)).pause()
-);
 
 function gotoSection(index, direction) {
   globalAnimating.value = true;
@@ -103,19 +113,19 @@ function gotoSection(index, direction) {
 
   if (
     (fromTop && globalCurrentIndex.value === index) ||
-    (!fromTop && globalCurrentIndex.value === layoutOrder.length - 1)
+    (!fromTop && globalCurrentIndex.value === layoutOrder.value?.length - 1)
   ) {
     return;
   }
 
-  gsap.set(layoutOrder[index], {
+  gsap.set(layoutOrder.value[index], {
     zIndex: 1,
   });
-  gsap.set(layoutOrder[globalCurrentIndex.value], {
+  gsap.set(layoutOrder.value[globalCurrentIndex.value], {
     zIndex: 0,
   });
   tl.fromTo(
-    layoutOrder[index],
+    layoutOrder.value[index],
     {
       yPercent: (i) => (i ? -100 * dFactor : 100 * dFactor),
     },
@@ -131,7 +141,7 @@ function gotoSection(index, direction) {
   if (globalCurrentIndex.value >= 0) {
     // The first time this function runs, current is -1
     tl.to(
-      layoutOrder[globalCurrentIndex.value],
+      layoutOrder.value[globalCurrentIndex.value],
       {
         autoAlpha: 0,
         yPercent: (i) => (i ? 100 * dFactor : -100 * dFactor),
@@ -150,6 +160,10 @@ const selectedWorksObserver = ref();
 const globalObserver = ref();
 
 onMounted(() => {
+  globalCurrentIndex.value = -1;
+  gsap.set(layoutOrder.value, {
+    alpha: 0,
+  });
   selectedWorksObserver.value = Observer.create({
     target: ".selected-works-container",
     type: "wheel",
@@ -197,7 +211,7 @@ onMounted(() => {
 
 <template>
   <div class="container-wrapper">
-    <section class="hero-container flex items-center relative bg-white">
+    <section class="flex items-center relative bg-white" ref="heroContainer">
       <div
         style="height: 1px"
         class="bg-slate-950 w-full absolute left-1/2 top-0 -translate-x-1/2"
@@ -211,7 +225,10 @@ onMounted(() => {
       </div>
     </section>
 
-    <section class="expertise-container flex items-center relative bg-white">
+    <section
+      class="expertise-container flex items-center relative bg-white"
+      ref="expertiseContainer"
+    >
       <div
         style="height: 1px"
         class="bg-slate-950 w-full absolute left-1/2 top-0 -translate-x-1/2"
@@ -231,6 +248,7 @@ onMounted(() => {
 
     <section
       class="selected-works-container w-full flex items-center relative bg-white"
+      ref="selectedWorksContainer"
     >
       <div
         style="height: 1px"
@@ -249,7 +267,10 @@ onMounted(() => {
       <HomeSelectedWorks ref="selectedWorksSelector" />
     </section>
 
-    <section class="footer-container px-10 flex items-center bg-white relative">
+    <section
+      class="footer-container px-10 flex items-center bg-white relative"
+      ref="footerContainer"
+    >
       <div
         style="height: 1px"
         class="bg-slate-950 w-full absolute left-1/2 top-0 -translate-x-1/2"
