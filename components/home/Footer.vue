@@ -73,6 +73,35 @@ const animation = computed(() => {
   return val;
 });
 
+const linkedinAnimation = computed(() => {
+  return gsap.to(linkedinSelector.value, {
+    y: -10,
+    scale: 1.2,
+    ease: "power3.inOut",
+    duration: 0.3,
+  });
+});
+const githubAnimation = computed(() => {
+  return gsap.to(githubSelector.value, {
+    y: -10,
+    scale: 1.2,
+    ease: "power3.inOut",
+    duration: 0.3,
+  });
+});
+const emailAnimation = computed(() => {
+  return gsap.to(emailSelector.value, {
+    y: -10,
+    scale: 1.2,
+    ease: "power3.inOut",
+    duration: 0.3,
+  });
+});
+
+const linkedinSelector = ref();
+const githubSelector = ref();
+const emailSelector = ref();
+
 onMounted(() => {});
 
 defineExpose({
@@ -98,7 +127,7 @@ defineExpose({
         </div>
       </div>
       <div
-        class="flex gap-10 items-center justify-center pb-6 pt-7 px-20 rounded-3xl border border-slate-950 relative"
+        class="flex items-center justify-center pb-6 pt-7 px-12 rounded-3xl border border-slate-950 relative"
         ref="getInTouchSelector"
       >
         <p
@@ -107,9 +136,30 @@ defineExpose({
         >
           Get in Touch
         </p>
-        <v-icon name="fa-linkedin" class="icon w-8 lg:w-10 h-8 lg:h-10" />
-        <v-icon name="fa-github" class="icon w-8 lg:w-10 h-8 lg:h-10" />
-        <v-icon name="fa-envelope" class="icon w-8 lg:w-10 h-8 lg:h-10" />
+        <div
+          ref="linkedinSelector"
+          @mouseover="linkedinAnimation.play()"
+          @mouseleave="linkedinAnimation.reverse()"
+          class="cursor-pointer px-5"
+        >
+          <v-icon name="fa-linkedin" class="icon w-8 lg:w-10 h-8 lg:h-10" />
+        </div>
+        <div
+          ref="githubSelector"
+          @mouseover="githubAnimation.play()"
+          @mouseleave="githubAnimation.reverse()"
+          class="cursor-pointer px-5"
+        >
+          <v-icon name="fa-github" class="icon w-8 lg:w-10 h-8 lg:h-10" />
+        </div>
+        <div
+          ref="emailSelector"
+          @mouseover="emailAnimation.play()"
+          @mouseleave="emailAnimation.reverse()"
+          class="cursor-pointer px-5"
+        >
+          <v-icon name="fa-envelope" class="icon w-8 lg:w-10 h-8 lg:h-10" />
+        </div>
 
         <div
           ref="layerSelector"

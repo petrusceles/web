@@ -32,7 +32,7 @@ const globalSelector = ref();
 const timeLineOut = computed(() => {
   const val = gsap.timeline({
     onComplete: () => {
-      timeLineOut.value?.kill();
+      // timeLineOut.value?.kill();
     },
   });
 
@@ -69,7 +69,7 @@ const timeLineOut = computed(() => {
 const timeLineIn = computed(() => {
   const val = gsap.timeline({
     onComplete: () => {
-      timeLineIn.value?.kill();
+      // timeLineIn.value?.kill();
     },
   });
 
@@ -200,36 +200,41 @@ const timeLineIn = computed(() => {
 const timeLineOutReverse = computed(() => {
   const val = gsap.timeline({
     onComplete: () => {
-      timeLineOutReverse.value.kill();
+      // timeLineOutReverse.value.kill();
     },
   });
   // val.set(globalSelector.value, {
   //   position: "static",
   // });  val.fromTo(
 
-  val.set(leftSelector.value, {
-    x: 0,
-    autoAlpha: 1,
-  });
-  val.set(rightSelector.value, {
-    x: 0,
-    autoAlpha: 1,
-  });
-
   val.fromTo(
-    globalSelector.value,
+    leftSelector.value,
     {
+      x: "-100",
       alpha: 0,
-      scale: 0.5,
     },
     {
-      alpha: 1,
+      x: 0,
+      autoAlpha: 1,
       duration: 0.5,
       ease: "power3.inOut",
-      scale: 1,
+    }
+  );
+  val.fromTo(
+    rightSelector.value,
+    {
+      x: "100",
+      alpha: 0,
+    },
+    {
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.5,
+      ease: "power3.inOut",
     },
     "<0.0"
   );
+
   val.from(
     poleSelector.value,
     {
@@ -345,7 +350,7 @@ const timeLineOutReverse = computed(() => {
 const timeLineInReverse = computed(() => {
   const val = gsap.timeline({
     onComplete: () => {
-      timeLineInReverse.value.kill();
+      // timeLineInReverse.value.kill();
     },
   });
 
@@ -430,7 +435,10 @@ defineExpose({
       </div>
     </div>
 
-    <div class="flex flex-col pb-9 md:w-1/2 md:pt-14 gap-2" ref="rightSelector">
+    <div
+      class="flex flex-col pb-9 md:w-1/2 md:pt-10 gap-1 md:gap-2"
+      ref="rightSelector"
+    >
       <h2 class="font-bold p-0 m-0 text-3xl lg:text-4xl" ref="titleSelector">
         {{ props.title }}
       </h2>

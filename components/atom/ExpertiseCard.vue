@@ -86,7 +86,7 @@ const icon = computed(() => icons[props.name]);
     </div>
     <div class="grid grid-cols-1 gap-3">
       <div
-        class="text-xs lg:text-sm font-light text-justify"
+        class="text-xs lg:text-sm font-light text-justify z-10"
         ref="cardDescSelector"
       >
         <template v-for="part in props.description">
