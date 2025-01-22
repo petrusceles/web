@@ -177,7 +177,7 @@ onMounted(() => {
   });
   selectedWorksObserver.value = Observer.create({
     target: ".selected-works-container",
-    type: "wheel",
+    type: "wheel, touch, pointer",
     wheelSpeed: 0.1,
     onDown: () => {
       !selectedWorksAnimating.value &&
@@ -195,7 +195,7 @@ onMounted(() => {
 
   globalObserver.value = Observer.create({
     target: window,
-    type: "wheel",
+    type: "wheel, touch, pointer",
     wheelSpeed: 0.1,
     onDown: () => {
       if (globalCurrentIndex.value == 2 && globalObserver.value?.isEnabled) {
