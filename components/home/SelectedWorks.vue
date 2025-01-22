@@ -21,7 +21,7 @@ const workData = [
       "Building an app that bridges the gap between the Directorate General of Minerals and Coal and business entities, MinerbaOne revolutionizes the mining licensing process. This platform empowers companies to seamlessly propose licenses, report progress, and track sales, driving efficiency and transparency in the mining sector.",
     tech: ["HTML", "CSS", "JavaScript", "Vue"],
     tag: "Company Work",
-    assets: ["/img/abtechnology/page1.png", "/img/abtechnology/page2.png"],
+    assets: ["/img/minerbaone/page1.png", "/img/minerbaone/page1.png"],
   },
   {
     id: 2,

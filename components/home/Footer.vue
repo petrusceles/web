@@ -140,30 +140,39 @@ defineExpose({
         >
           Get in Touch
         </p>
-        <div
+        <a
+          href="https://www.linkedin.com/in/celes-pratama/"
+          target="_blank"
+          rel="noopener noreferrer"
           ref="linkedinSelector"
           @mouseover="linkedinAnimation.play()"
           @mouseleave="linkedinAnimation.reverse()"
           class="cursor-pointer px-5"
         >
           <v-icon name="fa-linkedin" class="icon w-8 lg:w-10 h-8 lg:h-10" />
-        </div>
-        <div
+        </a>
+        <a
+          href="https://github.com/petrusceles/"
+          target="_blank"
+          rel="noopener noreferrer"
           ref="githubSelector"
           @mouseover="githubAnimation.play()"
           @mouseleave="githubAnimation.reverse()"
           class="cursor-pointer px-5"
         >
           <v-icon name="fa-github" class="icon w-8 lg:w-10 h-8 lg:h-10" />
-        </div>
-        <div
+        </a>
+        <a
+          href="mailto:celesproject08@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
           ref="emailSelector"
           @mouseover="emailAnimation.play()"
           @mouseleave="emailAnimation.reverse()"
           class="cursor-pointer px-5"
         >
           <v-icon name="fa-envelope" class="icon w-8 lg:w-10 h-8 lg:h-10" />
-        </div>
+        </a>
 
         <div
           ref="layerSelector"
