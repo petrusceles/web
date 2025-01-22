@@ -1,12 +1,20 @@
 <script setup>
-import gsap from "gsap";
-import { Observer } from "gsap/Observer";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap as gsapOriginal } from "gsap";
+// import { Observer } from "gsap/Observer";
+// import ScrollToPlugin from "gsap/ScrollToPlugin";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(Observer);
-gsap.registerPlugin(ScrollToPlugin);
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(Observer);
+// gsap.registerPlugin(ScrollToPlugin);
+// gsap.registerPlugin(ScrollTrigger);
+
+const {
+  $gsap: gsap,
+  $ScrollTrigger: ScrollTrigger,
+  $Observer: Observer,
+  $ScrollToPlugin: ScrollToPlugin,
+  $clamp: clamp,
+} = useNuxtApp();
 
 const selectedWorksSelector = ref();
 const selectedWorksCurrentIndex = ref(0);
@@ -33,7 +41,10 @@ const layoutOrder = computed(() => {
 //   ".footer-container",
 // ];
 const selectedWorksClamp = computed(() => {
-  return gsap.utils.clamp(-1, selectedWorksSelector.value?.workCards?.length);
+  return gsapOriginal.utils.clamp(
+    -1,
+    selectedWorksSelector.value?.workCards?.length
+  );
 });
 
 const selectedWorksGoToSection = (index, direction) => {
@@ -95,7 +106,7 @@ const initialAnimationEachSection = computed(() => {
 const globalAnimating = ref(false);
 const globalCurrentIndex = ref(-1);
 const globalClamp = computed(() => {
-  return gsap.utils.clamp(0, layoutOrder.value?.length);
+  return gsapOriginal.utils.clamp(0, layoutOrder.value?.length);
 });
 
 function gotoSection(index, direction) {

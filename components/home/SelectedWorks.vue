@@ -1,9 +1,11 @@
 <script setup>
-import gsap from "gsap";
-import { Observer } from "gsap/Observer";
-// import { defineExpose } from "vue";
+// import gsap from "gsap";
+// import { Observer } from "gsap/Observer";
+// // import { defineExpose } from "vue";
 
-gsap.registerPlugin(Observer);
+// gsap.registerPlugin(Observer);
+
+const { $gsap: gsap, $Observer: Observer } = useNuxtApp();
 
 const animating = ref(false);
 
@@ -43,7 +45,7 @@ const workData = [
   },
 ];
 
-const wrap = ref(gsap.utils.wrap(0, workData.length));
+// const wrap = ref(gsap.utils.wrap(0, workData.length));
 
 onMounted(() => {
   // gsap.set(

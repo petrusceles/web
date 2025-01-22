@@ -1,8 +1,5 @@
 <script setup>
-import gsap from "gsap";
-import { Flip } from "gsap/all";
-
-gsap.registerPlugin(Flip);
+const { $gsap: gsap, $Flip: Flip } = useNuxtApp();
 
 const expertiseCardsParent = ref();
 const expertiseCards = ref();
@@ -23,7 +20,7 @@ const datas = ref([
       },
     ],
     icon: "BrainCircuit",
-    type: 'ai'
+    type: "ai",
   },
   {
     id: 2,
@@ -44,7 +41,7 @@ const datas = ref([
       },
     ],
     icon: "PictureInPicture2",
-    type: 'web'
+    type: "web",
   },
   {
     id: 3,
@@ -61,7 +58,7 @@ const datas = ref([
       },
     ],
     icon: "TabletSmartphone",
-    type: 'mobile'
+    type: "mobile",
   },
 ]);
 

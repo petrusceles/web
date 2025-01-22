@@ -1,8 +1,11 @@
 <script setup>
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
+
+
+const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp();
 const dividerHead = ref();
 
 onMounted(() => {

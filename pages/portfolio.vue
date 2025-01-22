@@ -1,12 +1,19 @@
 <script setup>
-import gsap from "gsap";
-import { Observer } from "gsap/Observer";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import gsap from "gsap";
+import { gsap as gsapOriginal } from "gsap";
+// import { Observer } from "gsap/Observer";
+// import ScrollToPlugin from "gsap/ScrollToPlugin";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(Observer);
-gsap.registerPlugin(ScrollToPlugin);
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(Observer);
+// gsap.registerPlugin(ScrollToPlugin);
+// gsap.registerPlugin(ScrollTrigger);
+const {
+  $gsap: gsap,
+  $ScrollTrigger: ScrollTrigger,
+  $Observer: Observer,
+  $ScrollToPlugin: ScrollToPlugin,
+} = useNuxtApp();
 
 const portfolioContainer = ref();
 const footerContainer = ref();
@@ -24,7 +31,7 @@ const initialAnimationEachSection = computed(() => {
 const globalAnimating = ref(false);
 const globalCurrentIndex = ref(-1);
 const globalClamp = computed(() => {
-  return gsap.utils.clamp(0, layoutOrder.value?.length);
+  return gsapOriginal.utils.clamp(0, layoutOrder.value?.length);
 });
 
 function gotoSection(index, direction) {
