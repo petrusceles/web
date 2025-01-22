@@ -64,12 +64,16 @@ const animation = computed(() => {
     "<0.2"
   );
 
-  val.from(rightsSelector.value, {
-    y: -10,
-    duration: 0.3,
-    autoAlpha: 0,
-    ease: "back.out(1.2)",
-  });
+  val.from(
+    rightsSelector.value,
+    {
+      y: -10,
+      duration: 0.3,
+      autoAlpha: 0,
+      ease: "back.out(1.2)",
+    },
+    "<0.5"
+  );
   return val;
 });
 

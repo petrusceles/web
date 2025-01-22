@@ -8,17 +8,24 @@ gsap.registerPlugin(Observer);
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
-const portfolioContainer = ref();
+const aboutContainer = ref();
+const historyContainer = ref();
 const footerContainer = ref();
+
 const layoutOrder = computed(() => {
-  return [portfolioContainer.value, footerContainer.value];
+  return [aboutContainer.value, historyContainer.value, footerContainer.value];
 });
 
-const portfolioSelector = ref();
+const aboutSelector = ref();
+const historySelector = ref();
 const footerSelector = ref();
 
 const initialAnimationEachSection = computed(() => {
-  return [portfolioSelector.value?.animation, footerSelector.value?.animation];
+  return [
+    aboutSelector.value?.animation,
+    historySelector.value?.animation,
+    footerSelector.value?.animation,
+  ];
 });
 
 const globalAnimating = ref(false);
@@ -107,11 +114,12 @@ onMounted(() => {
   gotoSection(0, 1);
 });
 </script>
+
 <template>
-  <div>
+  <div class="container-wrapper">
     <section
-      class="portfolio-container px-10 items-center relative bg-white"
-      ref="portfolioContainer"
+      class="flex items-center justify-center relative bg-white"
+      ref="aboutContainer"
     >
       <div
         style="height: 1px"
@@ -122,13 +130,34 @@ onMounted(() => {
         class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
       ></div>
       <h2
-        style="z-index: 9999"
-        class="lg:text-9xl font-semibold text-8xl text-end md:text-center text-slate-950/10 h-fit absolute top-[15%] sm:top-[25%] left-1/2 -translate-x-1/2 md:text-nowrap px-10 xl:px-20"
+        class="text-slate-950/10 z-50 absolute lg:text-9xl font-semibold text-8xl left-0 lg:left-1/2 top-[15%] px-20"
       >
-        Portfolio
+        About
       </h2>
-      <div class="mx-auto container px-10">
-        <Portfolio ref="portfolioSelector" />
+      <div class="mx-auto container px-10 flex justify-center">
+        <About ref="aboutSelector" />
+      </div>
+    </section>
+
+    <section
+      class="flex items-center justify-center relative bg-white"
+      ref="historyContainer"
+    >
+      <div
+        style="height: 1px"
+        class="bg-slate-950 w-full absolute left-1/2 top-0 -translate-x-1/2"
+      ></div>
+      <div
+        style="height: 1px"
+        class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
+      ></div>
+      <h2
+        class="text-slate-950/10 z-50 absolute lg:text-9xl font-semibold text-8xl left-0 top-[15%] px-20"
+      >
+        History
+      </h2>
+      <div class="mx-auto container px-10 flex justify-center">
+        <AboutHistory ref="historySelector" />
       </div>
     </section>
 
@@ -150,7 +179,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 section {
   height: 100%;
   width: 100%;

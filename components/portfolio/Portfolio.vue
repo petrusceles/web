@@ -4,12 +4,17 @@ import PortfolioList from "~/components/atom/PortfolioList.vue";
 
 let options = reactive([
   {
-    title: "Machine Learning",
+    title: "AI Application",
     active: false,
     entities: [
       {
-        name: "Low Resolution Face Recognition",
-        description: "Advancing Low-Resolution Image Methods",
+        name: "Mobile Automatic Object Blurring",
+        description: "Advancing Lightweight Model for Mobile App",
+        assets: [
+          "/img/abtechnology/page1.png",
+          "/img/abtechnology/page2.png",
+          "/img/abtechnology/page3.png",
+        ],
       },
     ],
   },
@@ -20,10 +25,20 @@ let options = reactive([
       {
         name: "MinerbaOne",
         description: "Mineral & Coal Mining Superapp",
+        assets: [
+          "/img/abtechnology/page1.png",
+          "/img/abtechnology/page2.png",
+          "/img/abtechnology/page3.png",
+        ],
       },
       {
         name: "Naqos",
         description: "Boarding House Rental Platform",
+        assets: [
+          "/img/abtechnology/page1.png",
+          "/img/abtechnology/page2.png",
+          "/img/abtechnology/page3.png",
+        ],
       },
     ],
   },
@@ -34,6 +49,11 @@ let options = reactive([
       {
         name: "ABTechnology",
         description: "Programmable CDI for Motorcycles",
+        assets: [
+          "/img/abtechnology/page1.png",
+          "/img/abtechnology/page2.png",
+          "/img/abtechnology/page3.png",
+        ],
       },
     ],
   },

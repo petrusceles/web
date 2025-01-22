@@ -24,7 +24,7 @@ onMounted(() => {
       <NuxtLink to="/"> Home </NuxtLink>
 
       <NuxtLink to="/portfolio">Portfolio</NuxtLink>
-      <NuxtLink>About</NuxtLink>
+      <NuxtLink to="/about">About</NuxtLink>
     </div>
   </div>
   <div class="relative h-full">

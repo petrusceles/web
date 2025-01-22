@@ -63,14 +63,19 @@ defineExpose({
     <!-- Half 2 -->
     <div class="grid grid-cols-1 justify-items-center -space-y-7">
       <div
-        class="w-40 h-40 border-slate-950 border-2 rounded-full flex justify-center items-center"
+        class="w-56 h-w-56 rounded-full flex p-1 justify-center items-center bg-slate-200 overflow-hidden opacity-95 border border-slate-950"
         ref="userPicture"
       >
-        <User size="100px" />
+        <!-- <User size="100px" /> -->
+        <img
+          src="/img/profile.jpg"
+          alt="Discover Nuxt 3"
+          class="rounded-full"
+        />
       </div>
       <div class="flex items-center gap-2" ref="userDesc">
-        <span class="font-extralight text-2xl bg-white">Hello, I'm</span>
-        <span class="font-serif text-6xl font-bold bg-white">Celes</span>
+        <span class="font-extralight text-2xl">Hello, I'm</span>
+        <span class="font-serif text-6xl font-bold">Celes</span>
       </div>
     </div>
     <!-- Half 1 -->

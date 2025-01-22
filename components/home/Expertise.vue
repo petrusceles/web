@@ -10,16 +10,16 @@ const expertiseCards = ref();
 const datas = ref([
   {
     id: 1,
-    title: "Machine Learning",
-    cta: "Unlock the Power of Data",
+    title: "AI Application",
+    cta: "Unleash the Potential of Intelligence",
     description: [
       {
-        text: "Harnessing the power of machine learning to unlock insights and drive innovation—partner with me to",
-        bold: false,
+        text: "Leveraging the power of artificial intelligence",
+        bold: true,
       },
       {
-        text: "turn data into actionable strategies!",
-        bold: true,
+        text: "to transform ideas into innovative solutions—join me in turning possibilities into reality!",
+        bold: false,
       },
     ],
     icon: "BrainCircuit",

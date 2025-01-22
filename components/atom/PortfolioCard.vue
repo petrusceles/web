@@ -55,19 +55,43 @@ defineExpose({
       style="width: 85%"
     >
       <div
-        class="h-32 w-52 bg-white border border-slate-950 absolute rounded-3xl right-0 -top-2 -translate-y-full z-10"
+        class="h-32 w-52 bg-white border flex items-center justify-center p-1 border-slate-950 absolute rounded-3xl right-0 -top-2 -translate-y-full z-10"
         ref="pageOneSelector"
-      ></div>
+      >
+        <div class="overflow-hidden rounded-[1.3rem] h-full w-full">
+          <img
+            :src="props.entity?.assets[0]"
+            :alt="props.title"
+            class="object-cover h-full w-full"
+          />
+        </div>
+      </div>
       <div
-        class="h-28 w-48 bg-white border border-slate-950 absolute rounded-3xl -right-6 top-1/2 -translate-y-full -z-20"
+        class="h-28 w-48 bg-white border overflow-hidden flex items-center p-1 border-slate-950 absolute rounded-3xl -right-6 top-1/2 -translate-y-full -z-20"
         ref="pageTwoSelector"
-      ></div>
+      >
+        <div class="overflow-hidden rounded-[1.3rem] h-full w-full">
+          <img
+            :src="props.entity?.assets[1]"
+            :alt="props.title"
+            class="object-cover h-full w-full"
+          />
+        </div>
+      </div>
       <div
-        class="h-24 w-40 bg-white border border-slate-950 absolute rounded-3xl -right-12 -bottom-1/2 -z-30"
+        class="h-24 w-40 bg-white border overflow-hidden flex items-center p-1 border-slate-950 absolute rounded-3xl -right-12 -bottom-1/2 -z-30"
         ref="pageThreeSelector"
-      ></div>
+      >
+        <div class="overflow-hidden rounded-[1.3rem] h-full w-full">
+          <img
+            :src="props.entity?.assets[2]"
+            :alt="props.entity?.name"
+            class="object-cover h-full w-full"
+          />
+        </div>
+      </div>
       <div
-        class="font-semibold bottom-0 translate-y-[90%] left-2/3 -translate-x-[55%] absolute bg-white px-2 text-2xl z-10 text-nowrap"
+        class="font-semibold bottom-0 translate-y-[90%] rounded-full left-2/3 -translate-x-[55%] absolute bg-white/50 px-2 text-2xl z-10 text-nowrap"
         ref="titleSelector"
       >
         {{ props.entity?.name }}
