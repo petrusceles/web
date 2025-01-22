@@ -2,6 +2,7 @@
 import gsap from "gsap";
 import PortfolioList from "~/components/atom/PortfolioList.vue";
 
+const route = useRoute();
 let options = reactive([
   {
     title: "AI Application",
@@ -177,10 +178,16 @@ const animation = computed(() => {
 const portfolioListSelector = ref();
 const portfolioParentSelector = ref();
 
+const types = {
+  ai: 0,
+  web: 1,
+  mobile: 2,
+};
 onMounted(() => {
   gsap.set(portfolioParentSelector.value, {
     alpha: 0,
   });
+  currentIndex.value = types[route.query?.type] ?? 1;
   // animate(1);
 });
 

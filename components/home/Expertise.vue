@@ -23,6 +23,7 @@ const datas = ref([
       },
     ],
     icon: "BrainCircuit",
+    type: 'ai'
   },
   {
     id: 2,
@@ -43,6 +44,7 @@ const datas = ref([
       },
     ],
     icon: "PictureInPicture2",
+    type: 'web'
   },
   {
     id: 3,
@@ -59,6 +61,7 @@ const datas = ref([
       },
     ],
     icon: "TabletSmartphone",
+    type: 'mobile'
   },
 ]);
 
@@ -106,6 +109,7 @@ defineExpose({
         :description="data?.description"
         :title="data.title"
         :index="index"
+        :type="data.type"
       />
     </div>
   </div>

@@ -108,6 +108,10 @@ onMounted(() => {
 });
 </script>
 <template>
+  <Head>
+    <Title>Portfolio</Title>
+    <Meta name="description" content="Portfolio - Celes" />
+  </Head>
   <div>
     <section
       class="portfolio-container px-10 items-center relative bg-white"

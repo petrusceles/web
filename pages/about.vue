@@ -116,6 +116,10 @@ onMounted(() => {
 </script>
 
 <template>
+  <Head>
+    <Title>About</Title>
+    <Meta name="description" content="About Me - Celes" />
+  </Head>
   <div class="container-wrapper">
     <section
       class="flex items-center justify-center relative bg-white"

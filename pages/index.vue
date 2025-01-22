@@ -210,6 +210,10 @@ onMounted(() => {
 </script>
 
 <template>
+  <Head>
+    <Title>Home</Title>
+    <Meta name="description" content="Home - Celes" />
+  </Head>
   <div class="container-wrapper">
     <section class="flex items-center relative bg-white" ref="heroContainer">
       <div

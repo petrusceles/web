@@ -1,5 +1,5 @@
 <script setup>
-import { Download, User } from "lucide-vue-next";
+import { Download, ExternalLink, User } from "lucide-vue-next";
 
 import gsap from "gsap";
 
@@ -97,13 +97,16 @@ defineExpose({
         <p class="text-sm font-light">Take the Big Step :</p>
         <!-- <p class="text-lg font-light">Take the Big Step :</p> -->
         <div>
-          <button
+          <a
+            href="/Celes_CV_13.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             class="text-sm rounded-full border border-slate-950 py-3 px-6 flex items-center gap-3 hover:scale-95 duration-300 ease-in-out border-dashed"
           >
-            <Download />
-            <span> Download Celes's</span>
+            <ExternalLink />
+            <span> Open Celes's</span>
             <span class="text-lg font-bold">CV</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>

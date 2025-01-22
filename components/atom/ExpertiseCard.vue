@@ -23,6 +23,9 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  type: {
+    required: true,
+  },
 });
 
 const cardSelector = ref();
@@ -59,12 +62,16 @@ const animation = computed(() => {
     },
     "<0.2"
   );
-  val.from(cardIconSelector.value, {
-    duration: 0.5,
-    autoAlpha: 0,
-    y: "+10",
-    ease: "back.out(1.2)",
-  });
+  val.from(
+    cardIconSelector.value,
+    {
+      duration: 0.5,
+      autoAlpha: 0,
+      y: "+10",
+      ease: "back.out(1.2)",
+    },
+    "<0.0"
+  );
   return val;
 });
 defineExpose({
@@ -100,7 +107,8 @@ const icon = computed(() => icons[props.name]);
           {{ " " }}
         </template>
       </div>
-      <button
+      <NuxtLink
+        :to="{ path: 'portfolio', query: { type: props.type } }"
         class="ps-4 pe-7 py-2 rounded-full flex items-center justify-center border border-slate-950 gap-2 flex-nowrap w-fit max-h-10 relative lg:py-3 lg:ps-6 lg:pe-9"
         ref="cardButtonSelector"
       >
@@ -111,7 +119,7 @@ const icon = computed(() => icons[props.name]);
           class="h-8 w-8 bg-white absolute rounded-full right-0 translate-x-1/3"
           :stroke-width="0.5"
         />
-      </button>
+      </NuxtLink>
     </div>
     <div
       class="absolute top-0 -translate-y-1/2 bg-white rounded-full p-2 z-0"
