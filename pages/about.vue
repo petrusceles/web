@@ -109,7 +109,7 @@ onMounted(() => {
   globalObserver.value = Observer.create({
     target: window,
     type: "wheel, touch, pointer",
-    wheelSpeed: -0.1,
+    wheelSpeed: -1,
     onDown: () => {
       !globalAnimating.value && gotoSection(globalCurrentIndex.value - 1, -1);
     },

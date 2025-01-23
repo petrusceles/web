@@ -178,16 +178,16 @@ onMounted(() => {
   selectedWorksObserver.value = Observer.create({
     target: ".selected-works-container",
     type: "wheel, touch, pointer",
-    wheelSpeed: 0.1,
+    wheelSpeed: -1,
     onDown: () => {
       !selectedWorksAnimating.value &&
         !globalAnimating.value &&
-        selectedWorksGoToSection(selectedWorksCurrentIndex.value + 1, -1);
+        selectedWorksGoToSection(selectedWorksCurrentIndex.value - 1, 1);
     },
     onUp: () => {
       !selectedWorksAnimating.value &&
         !globalAnimating.value &&
-        selectedWorksGoToSection(selectedWorksCurrentIndex.value - 1, 1);
+        selectedWorksGoToSection(selectedWorksCurrentIndex.value + 1, -1);
     },
     tolerance: 10,
     preventDefault: true,
@@ -196,7 +196,7 @@ onMounted(() => {
   globalObserver.value = Observer.create({
     target: window,
     type: "wheel, touch, pointer",
-    wheelSpeed: -0.1,
+    wheelSpeed: -1,
     onDown: () => {
       if (globalCurrentIndex.value == 2 && globalObserver.value?.isEnabled) {
         globalObserver.value?.disable();
