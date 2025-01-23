@@ -218,6 +218,7 @@ onMounted(() => {
   });
   gotoSection(0, 1);
 });
+
 </script>
 
 <template>

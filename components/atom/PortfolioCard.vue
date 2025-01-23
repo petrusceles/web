@@ -1,5 +1,6 @@
 <script setup>
 import gsap from "gsap";
+import { ExternalLink } from "lucide-vue-next";
 
 const props = defineProps({
   entity: {
@@ -50,10 +51,19 @@ defineExpose({
 <template>
   <div class="h-44 w-80 relative lg:scale-125">
     <div
-      class="h-7 rounded-full border border-slate-950 bottom-10 absolute bg-white z-50"
+      class="h-7 rounded-full border border-slate-950 bottom-10 absolute bg-white z-50 flex items-center"
       ref="poleSelector"
       style="width: 85%"
     >
+      <a
+        v-if="props.entity?.url"
+        :href="props.entity?.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-xs ps-2 pe-2 flex items-center gap-1 border-r border-slate-950 cursor-pointer"
+      >
+        <ExternalLink :size="12" /> <span> Go to Project</span></a
+      >
       <div
         class="h-32 w-52 bg-white border flex items-center justify-center p-1 border-slate-950 absolute rounded-3xl right-0 -top-2 -translate-y-full z-10"
         ref="pageOneSelector"

@@ -41,7 +41,7 @@ const workData = [
       "Developed a high-performance Android app for automatic object blurring, achieving 90% accuracy and 26 fps using YOLOv5n6 and SORT. Enhanced frame rate by 500% with asynchronous processing.",
     tech: ["Python", "PyTorch", "Kotlin"],
     tag: "Personal Research",
-    assets: ["/img/abtechnology/page1.png", "/img/abtechnology/page2.png"],
+    assets: ["/img/appobjectblur/page2.jpeg", "/img/appobjectblur/page1.jpeg"],
   },
 ];
 
