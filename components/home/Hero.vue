@@ -67,11 +67,7 @@ defineExpose({
         ref="userPicture"
       >
         <!-- <User size="100px" /> -->
-        <img
-          src="/img/profile.jpg"
-          alt="Discover Nuxt 3"
-          class="rounded-full"
-        />
+        <img src="/img/profile2.jpeg" alt="Celes Photo" class="rounded-full" />
       </div>
       <div class="flex items-center gap-2" ref="userDesc">
         <span class="font-extralight text-2xl">Hello, I'm</span>
@@ -86,8 +82,9 @@ defineExpose({
         class="text-4xl lg:text-7xl font-bold leading-10 text-slate-950 text-center lg:leading-none"
         ref="heroTitle"
       >
-        <span class="text-stroke-3 text-white">I Bring</span> Innovation
-        <span class="text-stroke-3 text-white">into</span> Reality!
+        <span class="text-stroke-3 text-white">I Shape</span> Ideas
+        <span class="text-stroke-3 text-white">into </span> Innovative
+        Realities!
       </h1>
 
       <div

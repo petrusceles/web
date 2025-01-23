@@ -77,7 +77,7 @@ defineExpose({
   <div class="flex flex-col gap-8 lg:flex-row">
     <div class="grid grid-cols-1 gap-6 justify-items-center content-start">
       <div
-        class="text-2xl font-bold tracking-wider"
+        class="text-3xl font-bold tracking-wider"
         ref="educationTitleSelector"
       >
         Education
@@ -97,7 +97,7 @@ defineExpose({
     </div>
 
     <div
-      class="h-full w-5 border border-slate-950 rounded-full mx-20 relative -translate-x-5 hidden lg:block"
+      class="h-full lg:w-5 border border-slate-950 rounded-full mx-20 relative -translate-x-5"
       ref="poleSelector"
     >
       <div

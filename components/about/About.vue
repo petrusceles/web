@@ -63,8 +63,8 @@ defineExpose({
         class="h-56 w-56 rounded-full bg-slate-100 overflow-hidden p-1 border-slate-950 border"
       >
         <img
-          src="/img/profile.jpg"
-          alt="Celes"
+          src="/img/profile1.jpeg"
+          alt="Celes Photo"
           class="object-cover h-full w-full rounded-full"
         />
       </div>
