@@ -169,8 +169,10 @@ function gotoSection(index, direction) {
 const selectedWorksObserver = ref();
 
 const globalObserver = ref();
+const isLoading = useLoading();
 
 onMounted(() => {
+  isLoading.value = false;
   globalCurrentIndex.value = -1;
   gsap.set(layoutOrder.value, {
     alpha: 0,
@@ -218,10 +220,10 @@ onMounted(() => {
   });
   gotoSection(0, 1);
 });
-
 </script>
 
 <template>
+  <!-- <h1>{{ isLoading }}</h1> -->
   <Head>
     <Title>Home</Title>
     <Meta name="description" content="Home - Celes" />
