@@ -83,8 +83,7 @@ defineExpose({
         ref="heroTitle"
       >
         <span class="text-stroke-3 text-white">I Shape</span> Ideas
-        <span class="text-stroke-3 text-white">into </span> Innovative
-        Realities!
+        <span class="text-stroke-3 text-white">into </span> Reality!
       </h1>
 
       <div
