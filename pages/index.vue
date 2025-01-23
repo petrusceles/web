@@ -34,12 +34,6 @@ const layoutOrder = computed(() => {
   ];
 });
 
-// const layoutOrder = [
-//   ".hero-container",
-//   ".expertise-container",
-//   ".selected-works-container",
-//   ".footer-container",
-// ];
 const selectedWorksClamp = computed(() => {
   return gsapOriginal.utils.clamp(
     -1,
@@ -172,7 +166,6 @@ const globalObserver = ref();
 const isLoading = useLoading();
 
 onMounted(() => {
-  isLoading.value = false;
   globalCurrentIndex.value = -1;
   gsap.set(layoutOrder.value, {
     alpha: 0,

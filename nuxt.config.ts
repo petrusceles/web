@@ -46,6 +46,7 @@ export default defineNuxtConfig({
     url: "https://petruscaelestinus.com",
     name: "Petrus Caelestinus Portfolio",
   },
+  ssr: false,
   app: {
     head: {
       titleTemplate: "%s - Petrus Caelestinus",
