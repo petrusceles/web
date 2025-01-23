@@ -26,12 +26,13 @@ const animation = computed(() => {
     "<0.4"
   );
   val.from(
-    rightSelector.value,
+    rightSelector.value.children,
     {
       x: -100,
       autoAlpha: 0,
       duration: 1,
       ease: "back.out(1.2)",
+      stagger: 0.1,
     },
     "<0.2"
   );
@@ -69,18 +70,20 @@ defineExpose({
         />
       </div>
     </div>
-    <div
-      ref="rightSelector"
-      class="font-light leading-relaxed tracking-widest w-full relative h-fit text-justify text-xs"
-    >
-      Empowered by software and driven by vision, I strive to create innovative
-      solutions that transform challenges into opportunities for a better
-      worl<span class="relative"
-        >d
-        <div
-          class="h-6 w-6 absolute bg-slate-950 rounded-full bottom-0 right-0 translate-x-[150%] translate-y-1/2"
-        ></div>
-      </span>
+    <div class="grid grid-cols-1 gap-2" ref="rightSelector">
+      <div>App Developer based on Indonesia</div>
+      <div
+        class="font-light leading-relaxed tracking-widest w-full relative h-fit text-justify text-xs"
+      >
+        Empowered by software and driven by vision, I strive to create
+        innovative solutions that transform challenges into opportunities for a
+        better worl<span class="relative"
+          >d
+          <div
+            class="h-6 w-6 absolute bg-slate-950 rounded-full bottom-0 right-0 translate-x-[150%] translate-y-1/2"
+          ></div>
+        </span>
+      </div>
     </div>
   </div>
 </template>
