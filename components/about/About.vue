@@ -71,7 +71,7 @@ defineExpose({
       </div>
     </div>
     <div class="grid grid-cols-1 gap-2" ref="rightSelector">
-      <div>App Developer based on Indonesia</div>
+      <div>App Developer based in Indonesia</div>
       <div
         class="font-light leading-relaxed tracking-widest w-full relative h-fit text-justify text-xs"
       >
