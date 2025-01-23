@@ -393,7 +393,7 @@ defineExpose({
     class="grid grid-cols-1 items-center w-full md:flex md:gap-5 absolute px-10 xl:px-20 top-[55%] -translate-y-1/2 left-1/2 -translate-x-1/2"
     style="max-width: 70rem"
   >
-    <div class="relative w-8/12 md:w-1/2 md:h-96 min-h-60" ref="leftSelector">
+    <div class="relative w-10/12 md:w-1/2 md:h-96 min-h-60" ref="leftSelector">
       <!-- Card Above -->
       <div
         style="height: 55%; top: 9.75%; right: 14px"
@@ -444,18 +444,18 @@ defineExpose({
           transform: skew(-15deg) translateX(100%) translateY(100%)
             rotate(-6deg);
           transform-origin: 0% 100%;
-          right: 0%;
+          right: 1%;
           height: 30px;
         "
         ref="categoriesSelector"
-        class="absolute text-sm text-nowrap border border-s-0 border-slate-950 font-extralight flex justify-end items-center bg-slate-100 rounded-lg -z-10 pe-2 ps-3 pb-1"
+        class="absolute text-xs lg:text-sm text-nowrap border border-s-0 border-slate-950 font-extralight flex justify-end items-center bg-slate-100 rounded-lg -z-10 pe-2 ps-4 pb-1"
       >
         {{ props.tag }}
       </div>
     </div>
 
     <div
-      class="flex flex-col pb-9 md:w-1/2 md:pt-10 gap-1 md:gap-2"
+      class="flex flex-col pb-9 md:w-1/2 md:pt-10 gap-3 md:gap-2"
       ref="rightSelector"
     >
       <h2 class="font-bold p-0 m-0 text-3xl lg:text-4xl" ref="titleSelector">
