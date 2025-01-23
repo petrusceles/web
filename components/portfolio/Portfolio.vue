@@ -120,6 +120,7 @@ const animate = (index) => {
       alpha: 0,
       duration: 0.3,
       y: -100,
+      zIndex: -999,
       ease: "back.in(1.2)",
     },
     "<0.0"
@@ -132,6 +133,7 @@ const animate = (index) => {
       autoAlpha: 1,
       duration: 0.2,
       y: 0,
+      zIndex: 999,
     },
     "<0.0"
   );
@@ -171,6 +173,8 @@ const animation = computed(() => {
       autoAlpha: 1,
       duration: 0.2,
       y: 0,
+      zIndex: 999,
+      // pointerEvents: "auto",
     },
     "<0.0"
   );
@@ -188,6 +192,7 @@ const types = {
 onMounted(() => {
   gsap.set(portfolioParentSelector.value, {
     alpha: 0,
+    zIndex: -999,
   });
   currentIndex.value = types[route.query?.type] ?? 1;
   // animate(1);
