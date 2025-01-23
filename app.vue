@@ -1,5 +1,5 @@
 <script setup>
-import gsap from "gsap";
+import { Analytics } from "@vercel/analytics/nuxt";
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk
@@ -7,20 +7,14 @@ useHead({
       : "Celes's Portfolio";
   },
 });
-
-
-// onPrehydrate(() => {
-//   console.log("<OUNTEDD 1");
-// });
 </script>
 
 <template>
-  <!-- <template v-else> -->
+  <Analytics />
+
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
-  <!-- </template> -->
-  <!-- <NuxtLoadingIndicator /> -->
 </template>
 
 <style></style>
