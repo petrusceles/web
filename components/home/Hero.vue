@@ -94,7 +94,7 @@ defineExpose({
         <!-- <p class="text-lg font-light">Take the Big Step :</p> -->
         <div>
           <a
-            href="/Celes_CV_13.pdf"
+            href="/Celes_CV14.pdf"
             target="_blank"
             rel="noopener noreferrer"
             class="text-sm rounded-full border border-slate-950 py-3 px-6 flex items-center gap-3 hover:scale-95 duration-300 ease-in-out border-dashed"
