@@ -163,7 +163,7 @@ defineExpose({
           <v-icon name="fa-github" class="icon w-8 lg:w-10 h-8 lg:h-10" />
         </a>
         <a
-          href="mailto:celesproject08@gmail.com"
+          href="mailto:petrusprihantoro@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
           ref="emailSelector"
