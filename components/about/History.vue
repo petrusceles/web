@@ -76,12 +76,12 @@ defineExpose({
 <template>
   <div class="flex flex-col gap-8 lg:flex-row">
     <div class="grid grid-cols-1 gap-6 justify-items-center content-start">
-      <div
+      <h2
         class="text-3xl font-bold tracking-wider"
         ref="educationTitleSelector"
       >
         Education
-      </div>
+      </h2>
       <div
         class="grid grid-cols-1 gap-3 justify-items-start relative content-start"
       >
@@ -106,9 +106,9 @@ defineExpose({
     </div>
 
     <div class="grid grid-cols-1 gap-6 justify-items-center">
-      <div class="text-2xl font-bold tracking-wider" ref="worksTitleSelector">
+      <h2 class="text-2xl font-bold tracking-wider" ref="worksTitleSelector">
         Work Experiences
-      </div>
+      </h2>
       <div
         class="grid grid-cols-1 gap-3 justify-items-start relative content-start"
       >

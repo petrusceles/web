@@ -65,7 +65,7 @@ defineExpose({
 <template>
   <div class="grid grid-cols-1 gap-2">
     <div class="text-xs relative" ref="dateSelector">
-      <span class="bg-white"> {{ props.date }}</span>
+      <p class="bg-white">{{ props.date }}</p>
 
       <div
         ref="circleSelector"
@@ -74,12 +74,12 @@ defineExpose({
       />
     </div>
     <div class="grid grid-cols-1 ps-7 gap-1" ref="detailSelector">
-      <div class="text-base font-semibold w-fit grid grid-cols-1 leading-6">
+      <h3 class="text-base font-semibold w-fit grid grid-cols-1 leading-6">
         <span v-for="title in props.title"> {{ title }}</span>
-      </div>
-      <div class="text-xs font-light">
+      </h3>
+      <p class="text-xs font-light">
         {{ props.subtitle }}
-      </div>
+      </p>
     </div>
   </div>
 </template>
