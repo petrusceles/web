@@ -1,17 +1,4 @@
 <script setup>
-// import gsap from "gsap";
-// import { Observer } from "gsap/Observer";
-// // import { defineExpose } from "vue";
-
-// gsap.registerPlugin(Observer);
-
-const { $gsap: gsap, $Observer: Observer } = useNuxtApp();
-
-const animating = ref(false);
-
-const currentIndex = ref(0);
-
-const workSections = ref();
 
 const workCards = ref();
 

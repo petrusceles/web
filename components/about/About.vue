@@ -51,13 +51,14 @@ defineExpose({
       ref="leftSelector"
       class="grid grid-cols-1 content-center w-full justify-items-center lg:justify-items-end"
     >
-      <span class="font-serif text-end text-8xl" style="line-height: 4rem"
-        >Celes</span
-      >
-      <span
+      <h2 class="font-serif text-end text-8xl" style="line-height: 4rem">
+        Celes.{{ " " }}
+      </h2>
+      <h2
         class="text-lg tracking-widest font-extralight text-slate-950 text-center lg:text-end"
-        >Petrus Caelestinus Pratama Prihantoro</span
       >
+        Petrus Caelestinus Pratama Prihantoro
+      </h2>
     </div>
     <div class="flex-shrink z-10" ref="middleSelector">
       <div
@@ -65,14 +66,14 @@ defineExpose({
       >
         <img
           src="/img/profile1.jpeg"
-          alt="Celes Photo"
+          alt="Profile picture of Petrus Caelestinus Pratama Prihantoro, App Developer from Indonesia"
           class="object-cover h-full w-full rounded-full"
         />
       </div>
     </div>
     <div class="grid grid-cols-1 gap-2" ref="rightSelector">
-      <div>App Developer based in Indonesia</div>
-      <div
+      <p>App Developer based in Indonesia</p>
+      <p
         class="font-light leading-relaxed tracking-widest w-full relative h-fit text-justify text-xs"
       >
         Empowered by software and driven by vision, I strive to create
@@ -83,7 +84,7 @@ defineExpose({
             class="h-6 w-6 absolute bg-slate-950 rounded-full bottom-0 right-0 translate-x-[150%] translate-y-1/2"
           ></div>
         </span>
-      </div>
+      </p>
     </div>
   </div>
 </template>

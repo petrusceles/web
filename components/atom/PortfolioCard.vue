@@ -100,18 +100,18 @@ defineExpose({
           />
         </div>
       </div>
-      <div
+      <h2
         class="font-semibold bottom-0 translate-y-[90%] rounded-full left-2/3 -translate-x-[55%] absolute bg-white/50 px-2 text-2xl z-10 text-nowrap"
         ref="titleSelector"
       >
         {{ props.entity?.name }}
-        <div
+        <p
           class="absolute right-0 text-end font-light text-xs px-2 text-nowrap"
           ref="subtitleSelector"
         >
           {{ props.entity?.description }}
-        </div>
-      </div>
+        </p>
+      </h2>
     </div>
   </div>
 </template>

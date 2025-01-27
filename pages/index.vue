@@ -249,11 +249,11 @@ onMounted(() => {
         class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
       ></div>
 
-      <h2
+      <h1
         class="prevent-select pointer-events-none text-slate-950/10 z-50 absolute lg:text-9xl font-semibold text-8xl left-0 top-[15%] lg:top-[30%] px-20"
       >
         Areas of Expertise
-      </h2>
+      </h1>
       <HomeExpertise ref="expertiseSelector" />
     </section>
 
@@ -270,11 +270,11 @@ onMounted(() => {
         class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
       ></div>
 
-      <h2
+      <h1
         class="prevent-select pointer-events-none lg:text-9xl font-semibold text-8xl text-end md:text-center text-slate-950/10 h-fit absolute z-10 top-[15%] sm:top-[25%] left-1/2 -translate-x-1/2 md:text-nowrap px-10 xl:px-20"
       >
         Selected Works
-      </h2>
+      </h1>
       <HomeSelectedWorks ref="selectedWorksSelector" />
     </section>
 

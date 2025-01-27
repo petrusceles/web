@@ -117,19 +117,19 @@ defineExpose({
     class="grid grid-cols-1 absolute left-1/2 -translate-x-1/2 gap-5 w-full justify-items-center px-10"
   >
     <div class="lg:flex grid grid-cols-1 gap-8 justify-center">
-      <div
+      <h1
         class="grid grid-cols-1 w-full justify-items-center"
         ref="ctaSelector"
       >
-        <div
+        <span
           class="text-2xl lg:text-3xl font-bold text-stroke-3 text-slate-200"
         >
           Ready to Make a
-        </div>
-        <div class="text-4xl lg:text-5xl font-bold text-slate-950">
+        </span>
+        <span class="text-4xl lg:text-5xl font-bold text-slate-950">
           Breakthrough?
-        </div>
-      </div>
+        </span>
+      </h1>
       <div
         class="flex items-center justify-center pb-6 pt-7 px-12 rounded-3xl border border-slate-950 relative"
         ref="getInTouchSelector"

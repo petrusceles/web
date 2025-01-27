@@ -439,7 +439,7 @@ defineExpose({
       ></div>
 
       <!-- The Categories -->
-      <div
+      <h4
         style="
           transform: skew(-15deg) translateX(100%) translateY(100%)
             rotate(-6deg);
@@ -451,7 +451,7 @@ defineExpose({
         class="absolute text-xs lg:text-sm text-nowrap border border-s-0 border-slate-950 font-extralight flex justify-end items-center bg-slate-100 rounded-lg -z-10 pe-2 ps-4 pb-1"
       >
         {{ props.tag }}
-      </div>
+      </h4>
     </div>
 
     <div

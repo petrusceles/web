@@ -141,11 +141,11 @@ onMounted(() => {
         style="height: 1px"
         class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
       ></div>
-      <h2
+      <h1
         class=" prevent-select pointer-events-none text-slate-950/10 z-50 absolute lg:text-9xl font-semibold text-8xl left-0 lg:left-1/2 top-[15%] px-20"
       >
         About
-      </h2>
+      </h1>
       <div class="mx-auto container px-10 flex justify-center">
         <About ref="aboutSelector" />
       </div>

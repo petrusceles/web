@@ -132,12 +132,12 @@ onMounted(() => {
         style="height: 1px"
         class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
       ></div>
-      <h2
+      <h1
         style="z-index: 9999"
         class="prevent-select pointer-events-none lg:text-9xl font-semibold text-8xl text-end md:text-center text-slate-950/10 h-fit absolute top-[15%] sm:top-[25%] left-1/2 -translate-x-1/2 md:text-nowrap px-10 xl:px-20"
       >
         Portfolio
-      </h2>
+      </h1>
       <div class="mx-auto container px-10">
         <Portfolio ref="portfolioSelector" />
       </div>

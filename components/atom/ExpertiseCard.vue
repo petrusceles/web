@@ -85,14 +85,14 @@ const icon = computed(() => icons[props.name]);
     ref="cardSelector"
     class="rounded-3xl border border-slate-950 px-3 pb-3 pt-4 md:px-5 md:pb-5 md:pt-6 gap-2 relative flex h-fit"
   >
-    <div
+    <h2
       ref="cardTitleSelector"
       class="absolute bg-white px-2 font-semibold top-0 -translate-y-1/2 rounded-full text-2xl lg:text-3xl"
     >
       {{ props.title }}
-    </div>
+    </h2>
     <div class="grid grid-cols-1 gap-3">
-      <div
+      <p
         class="text-xs lg:text-sm font-light text-justify z-10"
         ref="cardDescSelector"
       >
@@ -106,7 +106,7 @@ const icon = computed(() => icons[props.name]);
           <template v-else>{{ part?.text }}</template>
           {{ " " }}
         </template>
-      </div>
+      </p>
       <NuxtLink
         :to="{ path: 'portfolio', query: { type: props.type } }"
         class="ps-4 pe-7 py-2 rounded-full flex items-center justify-center border border-slate-950 gap-2 flex-nowrap w-fit max-h-10 relative lg:py-3 lg:ps-6 lg:pe-9"

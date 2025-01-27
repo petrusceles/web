@@ -67,24 +67,28 @@ defineExpose({
         ref="userPicture"
       >
         <!-- <User size="100px" /> -->
-        <img src="/img/profile2.jpeg" alt="Celes Photo" class="rounded-full" />
+        <img
+          src="/img/profile2.jpeg"
+          alt="Profile picture of Petrus Caelestinus Pratama Prihantoro, App Developer from Indonesia"
+          class="rounded-full"
+        />
       </div>
-      <div class="flex items-center gap-2" ref="userDesc">
+      <h1 class="flex items-center gap-2" ref="userDesc">
         <span class="font-extralight text-2xl">Hello, I'm</span>
         <span class="font-serif text-6xl font-bold">Celes</span>
-      </div>
+      </h1>
     </div>
     <!-- Half 1 -->
     <div
       class="grid grid-cols-1 gap-11 justify-items-center lg:gap-8 place-content-center"
     >
-      <h1
+      <h2
         class="text-4xl lg:text-7xl font-bold leading-10 text-slate-950 text-center lg:leading-none"
         ref="heroTitle"
       >
         <span class="text-stroke-3 text-white">I Shape</span> Ideas
         <span class="text-stroke-3 text-white">into </span> Reality!
-      </h1>
+      </h2>
 
       <div
         class="flex gap-2 items-center flex-wrap justify-center lg:justify-start"
