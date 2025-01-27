@@ -413,7 +413,7 @@ defineExpose({
       <div
         style="height: 55%; bottom: 12%; right: 12px"
         ref="cardBelowSelector"
-        class="z-20 rounded-l-3xl py-1 ps-1 pe-3 border flex items-center justify-center bg-white border-slate-950 hover:-rotate-3 -rotate-[1deg] md:-rotate-[2deg] absolute"
+        class="z-20 rounded-l-3xl py-1 ps-1 pe-3 border flex items-center justify-center bg-white border-slate-950 -rotate-[1deg] md:-rotate-[2deg] absolute"
       >
         <div class="w-full h-full rounded-[1.3rem] overflow-hidden">
           <img
