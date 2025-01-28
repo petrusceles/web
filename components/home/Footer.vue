@@ -121,9 +121,7 @@ defineExpose({
         class="grid grid-cols-1 w-full justify-items-center"
         ref="ctaSelector"
       >
-        <span
-          class="text-2xl lg:text-3xl font-bold text-stroke-3 text-slate-200"
-        >
+        <span class="text-2xl lg:text-3xl font-bold text-stroke-3 text-white">
           Ready to Make a
         </span>
         <span class="text-4xl lg:text-5xl font-bold text-slate-950">
@@ -138,7 +136,7 @@ defineExpose({
           class="absolute top-0 left-4 -translate-y-1/2 text-base lg:text-xl font-semibold bg-white rounded-full px-1"
           ref="titleSelector"
         >
-          Get in Touch
+          Get in Touch!
         </p>
         <a
           href="https://www.linkedin.com/in/celes-pratama/"

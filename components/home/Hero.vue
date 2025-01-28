@@ -13,14 +13,14 @@ const animation = computed(() => {
   const timeLine = gsap.timeline({});
 
   timeLine.from(userPicture.value, {
-    duration: 1,
+    duration: 0.5,
     autoAlpha: 0,
   });
 
   timeLine.from(
     userDesc.value,
     {
-      duration: 1,
+      duration: 0.5,
       y: "+50",
       autoAlpha: 0,
       ease: "back.out(1.2)",
@@ -31,7 +31,7 @@ const animation = computed(() => {
   timeLine.from(
     heroTitle.value,
     {
-      duration: 1,
+      duration: 0.5,
       y: "+50",
       autoAlpha: 0,
       ease: "back.out(1.2)",
@@ -42,7 +42,7 @@ const animation = computed(() => {
   timeLine.from(
     heroCta.value.children,
     {
-      duration: 1,
+      duration: 0.5,
       x: "-50",
       autoAlpha: 0,
       stagger: 0.1,

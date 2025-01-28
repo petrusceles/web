@@ -75,7 +75,7 @@ const animation = computed(() => {
         autoAlpha: 0,
         x: "-100",
       },
-      "<0.1"
+      "<0.0"
     );
     val.add(expertiseCards.value[i]?.animation, "<0.3");
   }
