@@ -1,5 +1,6 @@
 <script setup>
 import { Analytics } from "@vercel/analytics/nuxt";
+import { SpeedInsights } from "@vercel/speed-insights/nuxt";
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk
@@ -11,6 +12,7 @@ useHead({
 
 <template>
   <Analytics />
+  <SpeedInsights />
 
   <NuxtLayout>
     <NuxtPage />
