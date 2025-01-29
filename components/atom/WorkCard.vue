@@ -92,7 +92,7 @@ const timeLineIn = computed(() => {
   val.from(
     poleSelector.value,
     {
-      duration: 0.5,
+      duration: 0.3,
       y: "+50",
       ease: "back.out(1.2)",
       autoAlpha: 0,
@@ -107,7 +107,7 @@ const timeLineIn = computed(() => {
       autoAlpha: 0,
     },
     {
-      duration: 0.5,
+      duration: 0.4,
       height: "80%",
       ease: "back.out(1.2)",
       autoAlpha: 1,
@@ -124,11 +124,11 @@ const timeLineIn = computed(() => {
     },
     {
       autoAlpha: 1,
-      duration: 0.5,
+      duration: 0.4,
       width: "90%",
       ease: "back.out(1.2)",
     },
-    "<0.3"
+    "<0.2"
   );
 
   val.fromTo(
@@ -139,7 +139,7 @@ const timeLineIn = computed(() => {
     },
     {
       autoAlpha: 1,
-      duration: 0.5,
+      duration: 0.4,
       width: "95%",
       ease: "back.out(1.2)",
     },
@@ -149,7 +149,7 @@ const timeLineIn = computed(() => {
   val.from(
     categoriesSelector.value,
     {
-      duration: 0.5,
+      duration: 0.4,
       rotation: 45,
       ease: "back.out(1.7)",
       autoAlpha: 0,
@@ -160,17 +160,17 @@ const timeLineIn = computed(() => {
   val.from(
     titleSelector.value,
     {
-      duration: 0.5,
+      duration: 0.4,
       x: "-50",
       ease: "back.out(1.2)",
       autoAlpha: 0,
     },
-    "<-0.5"
+    "<-0.6"
   );
   val.from(
     subtitleSelector.value,
     {
-      duration: 0.5,
+      duration: 0.4,
       x: "-50",
       ease: "back.out(1.2)",
       autoAlpha: 0,
@@ -180,22 +180,22 @@ const timeLineIn = computed(() => {
   val.from(
     techListSelector.value,
     {
-      duration: 0.5,
+      duration: 0.4,
       y: "+50",
       ease: "back.out(1.2)",
       autoAlpha: 0,
     },
-    "<0.2"
+    "<0.1"
   );
   val.from(
     techStackSelector.value,
     {
-      duration: 0.5,
+      duration: 0.4,
       y: "+10",
       ease: "back.out(1.2)",
       autoAlpha: 0,
     },
-    "<0.2"
+    "<0.1"
   );
   return val;
 });
@@ -219,7 +219,7 @@ const timeLineOutReverse = computed(() => {
     {
       x: 0,
       autoAlpha: 1,
-      duration: 0.5,
+      duration: 0.4,
       ease: "power3.inOut",
     }
   );
@@ -232,7 +232,7 @@ const timeLineOutReverse = computed(() => {
     {
       x: 0,
       autoAlpha: 1,
-      duration: 0.5,
+      duration: 0.4,
       ease: "power3.inOut",
     },
     "<0.0"
@@ -241,7 +241,7 @@ const timeLineOutReverse = computed(() => {
   val.from(
     poleSelector.value,
     {
-      duration: 0.5,
+      duration: 0.3,
       y: "+50",
       ease: "back.out(1.2)",
       autoAlpha: 0,
@@ -256,7 +256,7 @@ const timeLineOutReverse = computed(() => {
       autoAlpha: 0,
     },
     {
-      duration: 0.5,
+      duration: 0.4,
       height: "80%",
       ease: "back.out(1.2)",
       autoAlpha: 1,
@@ -273,11 +273,11 @@ const timeLineOutReverse = computed(() => {
     },
     {
       autoAlpha: 1,
-      duration: 0.5,
+      duration: 0.4,
       width: "90%",
       ease: "back.out(1.2)",
     },
-    "<0.3"
+    "<0.2"
   );
 
   val.fromTo(
@@ -288,7 +288,7 @@ const timeLineOutReverse = computed(() => {
     },
     {
       autoAlpha: 1,
-      duration: 0.5,
+      duration: 0.4,
       width: "95%",
       ease: "back.out(1.2)",
     },
@@ -298,7 +298,7 @@ const timeLineOutReverse = computed(() => {
   val.from(
     categoriesSelector.value,
     {
-      duration: 0.5,
+      duration: 0.4,
       rotation: 45,
       ease: "back.out(1.7)",
       autoAlpha: 0,
@@ -309,17 +309,17 @@ const timeLineOutReverse = computed(() => {
   val.from(
     titleSelector.value,
     {
-      duration: 0.5,
+      duration: 0.4,
       x: "-50",
       ease: "back.out(1.2)",
       autoAlpha: 0,
     },
-    "<-0.5"
+    "<-0.6"
   );
   val.from(
     subtitleSelector.value,
     {
-      duration: 0.5,
+      duration: 0.4,
       x: "-50",
       ease: "back.out(1.2)",
       autoAlpha: 0,
@@ -329,7 +329,7 @@ const timeLineOutReverse = computed(() => {
   val.from(
     techListSelector.value,
     {
-      duration: 0.5,
+      duration: 0.4,
       y: "+50",
       ease: "back.out(1.2)",
       autoAlpha: 0,
@@ -339,7 +339,7 @@ const timeLineOutReverse = computed(() => {
   val.from(
     techStackSelector.value,
     {
-      duration: 0.5,
+      duration: 0.4,
       y: "+10",
       ease: "back.out(1.2)",
       autoAlpha: 0,

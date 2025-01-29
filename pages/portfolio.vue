@@ -68,12 +68,12 @@ function gotoSection(index, direction) {
     {
       autoAlpha: 1,
       yPercent: 0,
-      duration: 1,
+      duration: 0.8,
       ease: "power2.inOut",
     }
   );
 
-  tl.add(initialAnimationEachSection.value[index]?.play(), "<0.3");
+  tl.add(initialAnimationEachSection.value[index]?.play(), "<0.2");
 
   if (globalCurrentIndex.value >= 0) {
     // The first time this function runs, current is -1
@@ -82,7 +82,7 @@ function gotoSection(index, direction) {
       {
         autoAlpha: 0,
         yPercent: (i) => (i ? 100 * dFactor : -100 * dFactor),
-        duration: 0.75,
+        duration: 0.6,
         ease: "power2.inOut",
       },
       "<0.2"
