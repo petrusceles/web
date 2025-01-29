@@ -142,7 +142,7 @@ onMounted(() => {
         class="bg-slate-950 w-full absolute left-1/2 bottom-0 -translate-x-1/2"
       ></div>
       <h1
-        class="prevent-select pointer-events-none text-slate-950/10 z-50 absolute lg:text-9xl font-semibold text-8xl left-0 lg:left-1/2 top-1/2 -translate-x-1/2 -translate-y-48 px-20"
+        class="prevent-select pointer-events-none text-slate-950/10 z-50 absolute lg:text-9xl font-semibold text-8xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-48 px-20"
       >
         Profile
       </h1>

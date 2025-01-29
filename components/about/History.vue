@@ -74,7 +74,7 @@ defineExpose({
 </script>
 
 <template>
-  <div class="flex flex-col gap-8 lg:flex-row">
+  <div class="flex flex-col gap-10 lg:flex-row">
     <div class="grid grid-cols-1 gap-6 justify-items-center content-start">
       <h2
         class="text-2xl font-bold tracking-wider"
@@ -83,7 +83,7 @@ defineExpose({
         Education
       </h2>
       <div
-        class="grid grid-cols-1 gap-3 justify-items-start relative content-start"
+        class="grid grid-cols-1 gap-7 lg:gap-3 justify-items-start relative content-start"
       >
         <AtomHistoryCard
           ref="educationSelector"
@@ -97,7 +97,7 @@ defineExpose({
     </div>
 
     <div
-      class="h-full lg:w-5 border border-slate-950 rounded-full mx-20 relative -translate-x-5"
+      class="h-full lg:w-5 border border-slate-950 rounded-full mx-20 relative -translate-x-5 hidden lg:inline"
       ref="poleSelector"
     >
       <div
@@ -110,7 +110,7 @@ defineExpose({
         Work Experiences
       </h2>
       <div
-        class="grid grid-cols-1 gap-3 justify-items-start relative content-start"
+        class="grid grid-cols-1 gap-7 lg:gap-3 justify-items-start relative content-start"
       >
         <AtomHistoryCard
           ref="worksSelector"
