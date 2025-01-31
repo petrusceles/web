@@ -63,7 +63,7 @@ defineExpose({
     <!-- Half 2 -->
     <div class="grid grid-cols-1 justify-items-center -space-y-7">
       <div
-        class="w-56 h-w-56 rounded-full flex p-1 justify-center items-center bg-slate-200 overflow-hidden opacity-95 border border-slate-950"
+        class="w-56 h-w-56 rounded-full flex p-1 justify-center items-center bg-slate-200 overflow-hidden opacity-95 border border-slate-400"
         ref="userPicture"
       >
         <!-- <User size="100px" /> -->
@@ -101,7 +101,7 @@ defineExpose({
             href="/Celes_CV14.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-sm rounded-full border border-slate-950 py-3 px-6 flex items-center gap-3 hover:scale-95 duration-300 ease-in-out border-dashed"
+            class="text-sm rounded-full border border-slate-400 py-3 px-6 flex items-center gap-3 hover:scale-95 duration-300 ease-in-out border-dashed"
           >
             <ExternalLink />
             <span> Open Celes's</span>

@@ -13,10 +13,7 @@ useHead({
 <template>
   <Analytics />
   <SpeedInsights />
-
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <NuxtLayout> <NuxtPage /></NuxtLayout>
 </template>
 
 <style></style>

@@ -62,7 +62,7 @@ defineExpose({
     </div>
     <div class="flex-shrink z-10" ref="middleSelector">
       <div
-        class="h-56 w-56 rounded-full bg-slate-100 overflow-hidden p-1 border-slate-950 border"
+        class="h-56 w-56 rounded-full bg-slate-100 overflow-hidden p-1 border-slate-400 border"
       >
         <img
           src="/img/profile1.jpeg"

@@ -398,7 +398,7 @@ defineExpose({
       <div
         style="height: 55%; top: 9.75%; right: 14px"
         ref="cardAboveSelector"
-        class="z-10 rounded-l-3xl py-1 ps-1 pe-3 border flex items-center justify-center bg-white border-slate-950 rotate-[3deg] md:rotate-[5deg] absolute overflow-hidden"
+        class="z-10 rounded-l-3xl py-1 ps-1 pe-3 border flex items-center justify-center bg-white border-slate-400 rotate-[3deg] md:rotate-[5deg] absolute overflow-hidden"
       >
         <div class="w-full h-full rounded-[1.3rem] overflow-hidden">
           <img
@@ -413,7 +413,7 @@ defineExpose({
       <div
         style="height: 55%; bottom: 12%; right: 12px"
         ref="cardBelowSelector"
-        class="z-20 rounded-l-3xl py-1 ps-1 pe-3 border flex items-center justify-center bg-white border-slate-950 -rotate-[1deg] md:-rotate-[2deg] absolute"
+        class="z-20 rounded-l-3xl py-1 ps-1 pe-3 border flex items-center justify-center bg-white border-slate-400 -rotate-[1deg] md:-rotate-[2deg] absolute"
       >
         <div class="w-full h-full rounded-[1.3rem] overflow-hidden">
           <img
@@ -427,7 +427,7 @@ defineExpose({
       <!-- Pole -->
       <div
         style="width: 36px"
-        class="h-full rounded-full border border-slate-950 top-0 absolute right-0 z-0 bg-white border-dashed"
+        class="h-full rounded-full border border-slate-400 top-0 absolute right-0 z-0 bg-white border-dashed"
         ref="poleSelector"
       ></div>
 
@@ -435,7 +435,7 @@ defineExpose({
       <div
         style="width: 14px; right: 18px"
         ref="lineSelector"
-        class="border-l border-slate-950 z-30 absolute top-1/2 -translate-y-1/2 translate-x-full bg-white"
+        class="border-l border-slate-400 z-30 absolute top-1/2 -translate-y-1/2 translate-x-full bg-white"
       ></div>
 
       <!-- The Categories -->
@@ -448,7 +448,7 @@ defineExpose({
           height: 30px;
         "
         ref="categoriesSelector"
-        class="absolute text-xs lg:text-sm text-nowrap border border-s-0 border-slate-950 font-extralight flex justify-end items-center bg-slate-100 rounded-lg -z-10 pe-2 ps-4 pb-1"
+        class="absolute text-xs lg:text-sm text-nowrap border border-s-0 border-slate-400 font-extralight flex justify-end items-center bg-slate-100 rounded-lg -z-10 pe-2 ps-4 pb-1"
       >
         {{ props.tag }}
       </h4>
@@ -470,7 +470,7 @@ defineExpose({
 
       <div
         ref="techListSelector"
-        class="border border-slate-950 rounded-2xl py-2 px-4 translate-y-1/4 relative w-fit border-dashed text-xs lg:text-sm"
+        class="border border-slate-400 rounded-2xl py-2 px-4 translate-y-1/4 relative w-fit border-dashed text-xs lg:text-sm"
       >
         <h3
           ref="techStackSelector"

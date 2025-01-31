@@ -68,11 +68,11 @@ onMounted(() => {
       ref="loadingOuterSelector"
     >
       <div
-        class="h-full w-full rounded-full border border-slate-950 translate-x-1/3 -z-10 relative"
+        class="h-full w-full rounded-full border border-slate-400 translate-x-1/3 -z-10 relative"
       >
         <div
           ref="loadingPieceSelector"
-          class="w-[70%] h-[25%] rounded-full border loading-piece-selector border-slate-950 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+          class="w-[70%] h-[25%] rounded-full border loading-piece-selector border-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
         ></div>
       </div>
     </div>
@@ -82,7 +82,7 @@ onMounted(() => {
     class="flex justify-center text-sm gap-5 items-center container mx-auto top-8 z-50 fixed left-1/2 -translate-x-1/2"
   >
     <div
-      class="flex gap-5 rounded-full border border-slate-950 font-light items-center navigation shadow-md bg-white px-2 py-2 lg:py-3 lg:px-4 lg:gap-10"
+      class="flex gap-5 rounded-full border border-slate-400 font-light items-center navigation shadow-md bg-white px-2 py-2 lg:py-3 lg:px-4 lg:gap-10"
     >
       <NuxtLink to="/"> Home </NuxtLink>
 
@@ -90,7 +90,7 @@ onMounted(() => {
       <NuxtLink to="/about">About</NuxtLink>
     </div>
   </div>
-  <div class="relative h-full">
+  <div class="flex justify-center">
     <slot></slot>
   </div>
 </template>
@@ -101,6 +101,6 @@ onMounted(() => {
 }
 
 .router-link-active {
-  @apply border-slate-950 text-slate-950;
+  @apply border-slate-400 text-slate-950;
 }
 </style>

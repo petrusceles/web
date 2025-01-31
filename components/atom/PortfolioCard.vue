@@ -49,9 +49,9 @@ defineExpose({
 });
 </script>
 <template>
-  <div class="h-44 w-80 relative lg:scale-125">
+  <div class="h-60 w-80 relative">
     <div
-      class="h-7 rounded-full border border-slate-950 bottom-10 absolute bg-white z-50 flex items-center"
+      class="h-7 rounded-full border border-slate-400 bottom-10 absolute bg-white z-50 flex items-center"
       ref="poleSelector"
       style="width: 85%"
     >
@@ -60,12 +60,12 @@ defineExpose({
         :href="props.entity?.url"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-xs ps-2 pe-2 flex items-center gap-1 border-r border-slate-950 cursor-pointer"
+        class="text-xs ps-2 pe-2 flex items-center gap-1 border-r border-slate-400 cursor-pointer"
       >
         <ExternalLink :size="12" /> <span> Go to Project</span></a
       >
       <div
-        class="h-32 w-52 bg-white border flex items-center justify-center p-1 border-slate-950 absolute rounded-3xl right-0 -top-2 -translate-y-full z-10"
+        class="h-32 w-52 bg-white border flex items-center justify-center p-1 border-slate-400 absolute rounded-3xl right-0 -top-2 -translate-y-full z-10"
         ref="pageOneSelector"
       >
         <div class="overflow-hidden rounded-[1.3rem] h-full w-full">
@@ -77,7 +77,7 @@ defineExpose({
         </div>
       </div>
       <div
-        class="h-28 w-48 bg-white border overflow-hidden flex items-center p-1 border-slate-950 absolute rounded-3xl -right-6 top-1/2 -translate-y-full -z-20"
+        class="h-28 w-48 bg-white border overflow-hidden flex items-center p-1 border-slate-400 absolute rounded-3xl -right-6 top-1/2 -translate-y-full -z-20"
         ref="pageTwoSelector"
       >
         <div class="overflow-hidden rounded-[1.3rem] h-full w-full">
@@ -89,7 +89,7 @@ defineExpose({
         </div>
       </div>
       <div
-        class="h-24 w-40 bg-white border overflow-hidden flex items-center p-1 border-slate-950 absolute rounded-3xl -right-12 -bottom-1/2 -z-30"
+        class="h-24 w-40 bg-white border overflow-hidden flex items-center p-1 border-slate-400 absolute rounded-3xl -right-12 -bottom-1/2 -z-30"
         ref="pageThreeSelector"
       >
         <div class="overflow-hidden rounded-[1.3rem] h-full w-full">
@@ -101,16 +101,31 @@ defineExpose({
         </div>
       </div>
       <h2
-        class="font-semibold bottom-0 translate-y-[90%] rounded-full left-2/3 -translate-x-[55%] absolute bg-white/50 px-2 text-2xl z-10 text-nowrap"
+        class="font-semibold bottom-0 translate-y-[90%] rounded-full left-2/3 -translate-x-[55%] absolute bg-white/50 px-2 text-xl z-10 text-nowrap"
         ref="titleSelector"
       >
         {{ props.entity?.name }}
-        <p
-          class="absolute right-0 text-end font-light text-xs px-2 text-nowrap"
-          ref="subtitleSelector"
-        >
-          {{ props.entity?.description }}
-        </p>
+        <div class="grid grid-cols-1 absolute right-0 justify-items-end gap-1">
+          <p
+            class="text-end font-light text-xs px-2 text-nowrap"
+            ref="subtitleSelector"
+          >
+            {{ props.entity?.description }}
+          </p>
+
+          <div
+            ref="techListSelector"
+            class="border border-slate-400 rounded-xl py-2 px-4 translate-y-1/4 relative w-fit border-dashed text-xs lg:text-sm"
+          >
+            <h3
+              ref="techStackSelector"
+              class="absolute right-4 font-medium text-slate-500 -top-1 -translate-y-1/2 bg-white"
+            >
+              Tech stack
+            </h3>
+            Vue, React, Laravel
+          </div>
+        </div>
       </h2>
     </div>
   </div>

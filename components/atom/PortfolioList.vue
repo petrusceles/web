@@ -22,7 +22,7 @@ defineExpose({
 </script>
 <template>
   <div
-    class="flex flex-col lg:flex-row justify-center items-center gap-16 lg:gap-32 h-full"
+    class="flex flex-col lg:flex-row justify-center items-center gap-20 lg:gap-32 h-full pt-16 pb-12"
   >
     <AtomPortfolioCard
       v-for="entity in props.data?.entities"

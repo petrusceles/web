@@ -131,7 +131,7 @@ defineExpose({
         </span>
       </h1>
       <div
-        class="flex items-center justify-center pb-6 pt-7 px-12 rounded-3xl border border-slate-950 relative"
+        class="flex items-center justify-center pb-6 pt-7 px-12 rounded-3xl border border-slate-400 relative"
         ref="getInTouchSelector"
       >
         <p

@@ -70,7 +70,7 @@ defineExpose({
       <div
         ref="circleSelector"
         :class="props.isCircle ? 'rounded-full' : 'rounded-xl'"
-        class="w-10 h-10 border border-slate-950 absolute left-0 top-1/2 -translate-y-1/2 overflow-hidden -translate-x-1/3 -z-10"
+        class="w-10 h-10 border border-slate-400 absolute left-0 top-1/2 -translate-y-1/2 overflow-hidden -translate-x-1/3 -z-10"
       />
     </div>
     <div class="grid grid-cols-1 ps-7 gap-1" ref="detailSelector">

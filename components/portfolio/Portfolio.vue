@@ -226,7 +226,7 @@ defineExpose({
     >
       <div class="">{{ option.title }}</div>
       <div
-        class="w-full h-2 rounded border-slate-950 bg-slate-200 border-dashed border"
+        class="w-full h-2 rounded border-slate-400 bg-slate-200 border-dashed border"
       ></div>
     </div>
   </div>

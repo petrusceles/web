@@ -83,11 +83,11 @@ const icon = computed(() => icons[props.name]);
 <template>
   <div
     ref="cardSelector"
-    class="rounded-3xl border border-slate-950 px-3 pb-3 pt-4 md:px-5 md:pb-5 md:pt-6 gap-2 relative flex h-fit"
+    class="rounded-2xl border border-slate-400 px-3 pb-3 pt-3 md:px-5 md:pb-5 md:pt-6 gap-2 relative flex h-fit"
   >
     <h2
       ref="cardTitleSelector"
-      class="absolute bg-white px-2 font-semibold top-0 -translate-y-1/2 rounded-full text-2xl lg:text-3xl"
+      class="absolute bg-white px-2 font-semibold top-0 -translate-y-1/2 rounded-full text-base"
     >
       {{ props.title }}
     </h2>
@@ -98,18 +98,17 @@ const icon = computed(() => icons[props.name]);
       >
         <template v-for="part in props.description">
           <template v-if="part?.bold">
-            <span
-              class="font-bold text-base lg:text-lg lg:leading-4 leading-5"
-              >{{ part?.text }}</span
-            >
+            <span class="font-bold text-sm lg:text-lg lg:leading-4 leading-5">{{
+              part?.text
+            }}</span>
           </template>
           <template v-else>{{ part?.text }}</template>
           {{ " " }}
         </template>
       </p>
-      <NuxtLink
+      <!-- <NuxtLink
         :to="{ path: 'portfolio', query: { type: props.type } }"
-        class="ps-4 pe-7 py-2 rounded-full flex items-center justify-center border border-slate-950 gap-2 flex-nowrap w-fit max-h-10 relative lg:py-3 lg:ps-6 lg:pe-9"
+        class="ps-4 pe-7 py-2 rounded-full flex items-center justify-center border border-slate-400 gap-2 flex-nowrap w-fit max-h-10 relative lg:py-3 lg:ps-6 lg:pe-9"
         ref="cardButtonSelector"
       >
         <span class="text-xs lg:text-base -translate-y-0.5 font-light">{{
@@ -119,7 +118,7 @@ const icon = computed(() => icons[props.name]);
           class="h-8 w-8 bg-white absolute rounded-full right-0 translate-x-1/3"
           :stroke-width="0.5"
         />
-      </NuxtLink>
+      </NuxtLink> -->
     </div>
     <div
       class="absolute top-0 -translate-y-1/2 bg-white rounded-full p-2 z-0"

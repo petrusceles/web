@@ -97,11 +97,11 @@ defineExpose({
     </div>
 
     <div
-      class="h-full lg:w-5 border border-slate-950 rounded-full mx-20 relative -translate-x-5"
+      class="h-full lg:w-5 border border-slate-400 rounded-full mx-20 relative -translate-x-5"
       ref="poleSelector"
     >
       <div
-        class="h-full w-5 border border-slate-950 rounded-full absolute top-[10%] right-0 translate-x-[150%] border-dashed bg-slate-100"
+        class="h-full w-5 border border-slate-400 rounded-full absolute top-[10%] right-0 translate-x-[150%] border-dashed bg-slate-100"
       ></div>
     </div>
 
