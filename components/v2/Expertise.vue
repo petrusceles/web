@@ -1,11 +1,51 @@
 <script setup>
+import gsap from "gsap";
 import {
   BrainCircuit,
   PictureInPicture2,
   TabletSmartphone,
 } from "lucide-vue-next";
 
-const { $gsap: gsap, $Flip: Flip } = useNuxtApp();
+const { $Flip: Flip } = useNuxtApp();
+const iconsWrapper = ref();
+
+const iconsWrapperSize = useElementSize(iconsWrapper);
+const iconsRef = ref();
+const iconsBelow = [
+  "si-vuedotjs",
+  "si-react",
+  "si-nuxtdotjs",
+  "si-nextdotjs",
+  "si-express",
+  "si-nestjs",
+  "si-pytorch",
+  "si-flutter",
+];
+const iconsAbove = [
+  "si-javascript",
+  "si-typescript",
+  "si-python",
+  "si-dart",
+  "si-kotlin",
+  "si-cplusplus",
+];
+
+onMounted(() => {
+  gsap.to(".icon-above", {
+    duration: 10,
+    ease: "none",
+    x: `+=672`,
+    repeat: -1,
+    // Wrap the cards when appropriate
+  });
+  gsap.to(".icon-below", {
+    duration: 15,
+    ease: "none",
+    x: `-=896`,
+    repeat: -1,
+    // Wrap the cards when appropriate
+  });
+});
 </script>
 
 <template>
@@ -55,6 +95,58 @@ const { $gsap: gsap, $Flip: Flip } = useNuxtApp();
           Mobile
         </h4>
       </div>
+    </div>
+    <div class="grid grid-cols-1 gap-3 mt-5 lg:gap-6">
+      <p class="text-sm lg:text-lg">
+        Using these various
+        <span class="text-xl font-bold lg:text-4xl">Tools :</span>
+      </p>
+
+      <div
+        class="w-full border-x-2 border-slate-400 py-3 grid grid-cols-1 gap-8"
+      >
+        <div
+          style="width: calc(100% - 25px)"
+          ref="iconsWrapper"
+          class="flex gap-16 items-center justify-end justify-self-center overflow-clip"
+        >
+          <v-icon
+            :name="icon"
+            class="icon w-12 h-12 icon-above"
+            v-for="icon in iconsAbove"
+          />
+          <v-icon
+            :name="icon"
+            class="icon w-12 h-12 icon-above"
+            v-for="icon in iconsAbove"
+          />
+          <v-icon
+            :name="icon"
+            class="icon w-12 h-12 icon-above"
+            v-for="icon in iconsAbove"
+          />
+        </div>
+        <div
+          style="width: calc(100% - 25px)"
+          ref="iconsWrapper"
+          class="flex gap-16 items-center justify-start justify-self-center overflow-clip"
+        >
+          <v-icon
+            :name="icon"
+            class="icon w-12 h-12 icon-below"
+            v-for="icon in iconsBelow"
+          />
+          <v-icon
+            :name="icon"
+            class="icon w-12 h-12 icon-below"
+            v-for="icon in iconsBelow"
+          />
+        </div>
+      </div>
+
+      <p class="text-sm lg:text-lg justify-self-end">
+        And many more to be added...
+      </p>
     </div>
   </div>
 </template>

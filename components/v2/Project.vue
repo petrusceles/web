@@ -49,12 +49,12 @@ const entities = [
 <template>
   <div class="container mx-auto grid grid-cols-1 gap-4 lg:gap-6">
     <h1 class="text-sm text-center lg:text-lg">
-      And here are
+      And here some
       <span class="text-xl font-bold px-1 lg:text-4xl">Projects</span> I've ever
       did...
     </h1>
     <div
-      class="flex flex-wrap gap-x-12 items-center lg:gap-x-16 lg:gap-y-3 justify-center"
+      class="flex flex-wrap gap-x-12 items-center lg:gap-x-24 lg:gap-y-3 justify-center"
     >
       <AtomProjectCard
         v-for="item in entities"

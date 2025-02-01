@@ -1,12 +1,16 @@
 <template>
-  <div class="container mx-auto grid grid-cols-1 gap-4 lg:gap-7">
-    <h1 class="grid grid-cols-1 justify-items-center text-sm lg:text-lg">
+  <div
+    class="container mx-auto grid grid-cols-1 gap-4 lg:gap-7 justify-items-center"
+  >
+    <h1
+      class="grid grid-cols-1 justify-items-center text-sm lg:text-lg text-center"
+    >
       <span>Simply, my recent</span>
       <span class="text-xl lg:text-4xl px-1 font-bold">
         Education & Work Experience</span
       >
     </h1>
-    <div class="grid grid-cols-1 gap-8 w-full">
+    <div class="grid grid-cols-1 gap-8 w-fit">
       <div class="flex gap-6">
         <div class="relative flex items-center justify-center">
           <div class="bg-white z-30">

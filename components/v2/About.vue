@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <div class="container mx-auto flex-col items-center flex gap-3">
-    <div class="grid grid-cols-1 place-items-center gap-y-5 lg:gap-y-7">
+    <div class="grid grid-cols-1 place-items-center gap-y-6 lg:gap-y-8">
       <div class="flex gap-4 justify-start w-full">
         <div
           class="h-32 w-32 lg:w-52 lg:h-52 rounded-full bg-slate-100 overflow-hidden p-1 lg:p-2 justify-self-end"
@@ -41,13 +41,6 @@
           technology.
         </p>
       </div>
-      <!-- <div class="col-span-2 flex gap-8 items-center justify-items-center">
-        <v-icon name="si-nuxtdotjs" class="icon w-8 h-8" />
-        <v-icon name="si-vuedotjs" class="icon w-8 h-8" />
-        <v-icon name="si-react" class="icon w-8 h-8" />
-        <v-icon name="si-express" class="icon w-8 h-8" />
-        <v-icon name="si-nestjs" class="icon w-8 h-8" />
-      </div> -->
     </div>
   </div>
 </template>

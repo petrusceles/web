@@ -114,7 +114,7 @@ defineExpose({
 </script>
 <template>
   <div
-    class="grid grid-cols-1 absolute left-1/2 -translate-x-1/2 gap-5 w-full justify-items-center px-10"
+    class="grid grid-cols-1 gap-5 w-full justify-items-center py-16 lg:py-24"
   >
     <div class="lg:flex grid grid-cols-1 gap-8 justify-center">
       <h1
