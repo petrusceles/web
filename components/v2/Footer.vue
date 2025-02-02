@@ -110,7 +110,7 @@ const emailSelector = ref();
 onMounted(() => {});
 
 defineExpose({
-  animation,
+  // animation,
 });
 </script>
 <template>
