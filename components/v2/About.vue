@@ -180,7 +180,7 @@ defineExpose({
     </div>
 
     <h1
-      class="grid grid-cols-1 justify-items-center text-sm lg:text-lg text-center"
+      class="grid grid-cols-1 justify-items-center text-sm lg:text-lg text-center mt-3"
       ref="experienceTitleSelector"
     >
       <span>Simply, my recent</span>
