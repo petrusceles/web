@@ -49,23 +49,14 @@ onMounted(() => {
         });
       },
     });
-    // const timeline = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: section,
-    //     pin: false,
-    //     start: "top center",
-    //     end: "400px bottom",
-    //     scrub: true,
-    //   },
-    // });
-    // timeline.to(selector, {
-    //   borderRightWidth: 2,
-    //   borderBottomWidth: 2,
-    //   borderTopWidth: 2,
-    //   borderLeftWidth: 2,
-    // });
-    // globalTimeline.push(timeline);
   }
+
+  gsap.from(headerNav.value, {
+    duration: 1.5,
+    y: -100,
+    autoAlpha: 0,
+    ease: "elastic.out(1,0.4)",
+  });
 });
 </script>
 
