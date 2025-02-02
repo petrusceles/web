@@ -6,6 +6,7 @@ const getInTouchSelector = ref();
 const titleSelector = ref();
 const layerSelector = ref();
 const rightsSelector = ref();
+const iconSelector = ref();
 
 const animation = computed(() => {
   const val = gsap.timeline();
@@ -53,7 +54,7 @@ const animation = computed(() => {
   );
 
   val.from(
-    ".icon",
+    iconSelector.value?.children,
     {
       y: 10,
       duration: 1,
@@ -140,39 +141,41 @@ defineExpose({
         >
           Get in Touch
         </p>
-        <a
-          href="https://www.linkedin.com/in/celes-pratama/"
-          target="_blank"
-          rel="noopener noreferrer"
-          ref="linkedinSelector"
-          @mouseover="linkedinAnimation.play()"
-          @mouseleave="linkedinAnimation.reverse()"
-          class="cursor-pointer px-5"
-        >
-          <v-icon name="fa-linkedin" class="icon w-8 lg:w-10 h-8 lg:h-10" />
-        </a>
-        <a
-          href="https://github.com/petrusceles/"
-          target="_blank"
-          rel="noopener noreferrer"
-          ref="githubSelector"
-          @mouseover="githubAnimation.play()"
-          @mouseleave="githubAnimation.reverse()"
-          class="cursor-pointer px-5"
-        >
-          <v-icon name="fa-github" class="icon w-8 lg:w-10 h-8 lg:h-10" />
-        </a>
-        <a
-          href="mailto:petrusprihantoro@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          ref="emailSelector"
-          @mouseover="emailAnimation.play()"
-          @mouseleave="emailAnimation.reverse()"
-          class="cursor-pointer px-5"
-        >
-          <v-icon name="fa-envelope" class="icon w-8 lg:w-10 h-8 lg:h-10" />
-        </a>
+        <span ref="iconSelector" class="flex items-center justify-center">
+          <a
+            href="https://www.linkedin.com/in/celes-pratama/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ref="linkedinSelector"
+            @mouseover="linkedinAnimation.play()"
+            @mouseleave="linkedinAnimation.reverse()"
+            class="cursor-pointer px-5"
+          >
+            <v-icon name="fa-linkedin" class="icon w-8 lg:w-10 h-8 lg:h-10" />
+          </a>
+          <a
+            href="https://github.com/petrusceles/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ref="githubSelector"
+            @mouseover="githubAnimation.play()"
+            @mouseleave="githubAnimation.reverse()"
+            class="cursor-pointer px-5"
+          >
+            <v-icon name="fa-github" class="icon w-8 lg:w-10 h-8 lg:h-10" />
+          </a>
+          <a
+            href="mailto:petrusprihantoro@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            ref="emailSelector"
+            @mouseover="emailAnimation.play()"
+            @mouseleave="emailAnimation.reverse()"
+            class="cursor-pointer px-5"
+          >
+            <v-icon name="fa-envelope" class="icon w-8 lg:w-10 h-8 lg:h-10" />
+          </a>
+        </span>
 
         <div
           ref="layerSelector"

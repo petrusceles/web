@@ -45,18 +45,41 @@ const entities = [
     stack: "Flutter, ArduinoIDE, ESP32",
   },
 ];
+
+const projectCardSelector = ref();
+const titleSelector = ref();
+
+const animation = computed(() => {
+  const tl = gsap.timeline({});
+  tl.from(titleSelector.value, {
+    x: -40,
+    autoAlpha: 0,
+    ease: "back.out(1.2)",
+    duration: 0.5,
+  });
+  for (let i = 0; i < projectCardSelector.value?.length; i++) {
+    const element = projectCardSelector.value[i];
+    tl.add(element?.animation?.play(), "<0.1");
+  }
+  return tl;
+});
+
+defineExpose({
+  animation,
+});
 </script>
 <template>
-  <div class="container mx-auto grid grid-cols-1 gap-4 lg:gap-6">
-    <h1 class="text-sm text-center lg:text-lg">
+  <div class="container mx-auto grid grid-cols-1 gap-4 lg:gap-12">
+    <h1 class="text-sm text-center lg:text-lg" ref="titleSelector">
       And here some
       <span class="text-xl font-bold px-1 lg:text-4xl">Projects</span> I've ever
-      did...
+      did
     </h1>
     <div
-      class="flex flex-wrap gap-x-12 items-center lg:gap-x-24 lg:gap-y-3 justify-center"
+      class="flex flex-wrap gap-x-12 items-center lg:gap-x-28 lg:gap-y-8 justify-center"
     >
       <AtomProjectCard
+        ref="projectCardSelector"
         v-for="item in entities"
         :name="item.name"
         :images="item.images"
