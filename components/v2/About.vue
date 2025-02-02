@@ -80,7 +80,7 @@ const animation = computed(() => {
       ease: "back.out(1.2)",
       autoAlpha: 0,
     },
-    "<0.0"
+    "<0.2"
   );
 
   tl.from(

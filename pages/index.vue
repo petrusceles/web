@@ -25,8 +25,14 @@ onMounted(() => {
     "top-=100px center",
     "top-=100px center",
     "top-=100px center",
+    "top-=100px center",
   ];
-  const ends = ["bottom center", "bottom center", "bottom center"];
+  const ends = [
+    "bottom center",
+    "bottom center",
+    "bottom center",
+    "bottom center",
+  ];
 
   for (let i = 0; i < selectors.length; i++) {
     const section = sections[i];
@@ -50,13 +56,13 @@ onMounted(() => {
     class="pb-24 text-slate-800 px-12 grid grid-cols-1 gap-16 max-w-[45rem] lg:max-w-[55rem] justify-items-center content-center lg:gap-20"
   >
     <div class="h-14 lg:h-12"></div>
-    <section id="about" class="grid grid-cols-1 gap-6">
+    <section id="about">
       <V2About ref="aboutSelector" />
     </section>
-    <section id="expertise" class="grid grid-cols-1 gap-6">
+    <section id="expertise">
       <V2Expertise ref="expertiseSelector" />
     </section>
-    <section id="project" class="grid grid-cols-1 gap-6">
+    <section id="project">
       <V2Project ref="projectSelector" />
     </section>
     <section id="footer">

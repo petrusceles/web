@@ -25,8 +25,17 @@ const props = defineProps({
 
 const imagesSelector = ref();
 const descriptionSelector = ref();
+const isAnimating = ref(false);
+
 const animation = computed(() => {
-  const tl = gsap.timeline();
+  const tl = gsap.timeline({
+    onStart: () => {
+      isAnimating.value = true;
+    },
+    onComplete: () => {
+      isAnimating.value = false;
+    },
+  });
 
   tl.from(imagesSelector.value?.children, {
     y: 50,
@@ -48,15 +57,61 @@ const animation = computed(() => {
   );
   return tl;
 });
-// onMounted(() => {});
 defineExpose({
   animation,
 });
+
+const frontSelector = ref();
+const backSelector = ref();
+const hoverAnimation = computed(() => {
+  const tl = gsap.timeline({ paused: true });
+  if (!isAnimating.value) {
+    tl.to(frontSelector.value, {
+      duration: 0.2,
+      translateX: -30,
+      translateY: 30,
+      ease: "power3.inOut",
+    });
+    tl.to(
+      backSelector.value,
+      {
+        duration: 0.2,
+        translateX: 50,
+        translateY: -10,
+        ease: "power3.inOut",
+      },
+      "<0.0"
+    );
+  }
+  return tl;
+});
+onMounted(() => {});
+
+const emits = defineEmits(["show"]);
 </script>
 <template>
-  <div class="grid grid-cols-1 w-72 min-w-60 lg:w-80">
+  <div
+    class="grid grid-cols-1 w-72 min-w-60 lg:w-80 cursor-pointer"
+    @mouseover="
+      () => {
+        hoverAnimation?.play();
+      }
+    "
+    @mouseleave="
+      () => {
+        hoverAnimation?.reverse();
+      }
+    "
+    @click="
+      () => {
+        hoverAnimation?.reverse();
+        emits('show');
+      }
+    "
+  >
     <div class="w-full grid grid-cols-1 relative pb-8" ref="imagesSelector">
       <div
+        ref="frontSelector"
         class="h-32 w-52 lg:h-44 lg:w-64 p-1 translate-y-7 -skew-x-12 bg-white border border-slate-400 rounded-2xl justify-self-start me-5 z-30"
       >
         <div class="overflow-hidden rounded-xl h-full w-full">
@@ -74,6 +129,7 @@ defineExpose({
         <p class="text-xs font-light lg:text-sm">{{ props.stack }}</p>
       </div>
       <div
+        ref="backSelector"
         class="h-32 w-52 lg:h-44 lg:w-64 p-1 -skew-x-6 bg-white border border-slate-400 rounded-2xl justify-self-end me-5 absolute top-2 right-0 translate-x-6 z-20"
       >
         <div class="overflow-hidden rounded-xl h-full w-full">

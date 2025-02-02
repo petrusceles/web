@@ -14,4 +14,11 @@ interface Expertise {
   title: string;
 }
 
-export type { Experience, ExperienceDetail, Expertise };
+interface ProjectDetail {
+  title: string;
+  image: string;
+  content: string;
+  url?: string;
+}
+
+export type { Experience, ExperienceDetail, Expertise, ProjectDetail };

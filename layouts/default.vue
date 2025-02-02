@@ -20,7 +20,6 @@ const scrollTo = (section) => {
   });
 };
 
-
 onMounted(() => {
   const selects = [
     aboutSelector.value,
@@ -116,29 +115,31 @@ onMounted(() => {
       >
         <div
           ref="aboutSelector"
-          class="background absolute w-full h-full bg-slate-200/50 top-1/2 left-0 -translate-y-1/2 z-10"
+          class="background absolute w-full h-full bg-slate-400 top-1/2 left-0 -translate-y-1/2 z-10"
         ></div>
-        <div class="z-50">About</div>
+        <div class="z-50 relative">About</div>
       </button>
 
       <button
         class="rounded-full py-3 px-5 overflow-clip box-border relative"
         @click="scrollTo('#expertise')"
       >
-        Expertise
+        <div class="z-50 relative">Expertise</div>
+
         <div
           ref="expertiseSelector"
-          class="background absolute w-full h-full bg-slate-200/50 top-1/2 left-0 -translate-y-1/2 z-10"
+          class="background absolute w-full h-full bg-slate-400 top-1/2 left-0 -translate-y-1/2 z-10"
         ></div>
       </button>
       <button
         class="rounded-full py-3 px-5 overflow-clip box-border relative"
         @click="scrollTo('#project')"
       >
-        Projects
+        <div class="z-50 relative">Projects</div>
+
         <div
           ref="projectSelector"
-          class="background absolute w-full h-full bg-slate-200/50 top-1/2 left-0 -translate-y-1/2 z-10"
+          class="background absolute w-full h-full bg-slate-400 top-1/2 left-0 -translate-y-1/2 z-10"
         ></div>
       </button>
     </div>
