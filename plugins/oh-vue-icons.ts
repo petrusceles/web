@@ -1,11 +1,47 @@
 // import { defineNuxtPlugin, useRuntimeConfig } from "#app";
 import { OhVueIcon, addIcons } from "oh-vue-icons";
-import * as FaIcons from "oh-vue-icons/icons/fa";
-import * as SiIcons from "oh-vue-icons/icons/si";
+import {
+  SiVuedotjs,
+  SiReact,
+  SiNuxtdotjs,
+  SiNextdotjs,
+  SiExpress,
+  SiNestjs,
+  SiPytorch,
+  SiFlutter,
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiDart,
+  SiKotlin,
+  SiCplusplus,
+  SiLinkedin,
+  SiGithub,
+  SiMaildotru,
+} from "oh-vue-icons/icons/si";
 
-const Fa = Object.values({ ...FaIcons });
-const Si = Object.values({ ...SiIcons });
-addIcons(...Fa, ...Si);
+// import * as SiIcons from "oh-vue-icons/icons/si";
+
+const Si = Object.values({
+  SiVuedotjs,
+  SiReact,
+  SiNuxtdotjs,
+  SiNextdotjs,
+  SiExpress,
+  SiNestjs,
+  SiPytorch,
+  SiFlutter,
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiDart,
+  SiKotlin,
+  SiCplusplus,
+  SiLinkedin,
+  SiGithub,
+  SiMaildotru,
+});
+addIcons(...Si);
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("v-icon", OhVueIcon);

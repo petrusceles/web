@@ -1,8 +1,5 @@
 <script setup>
-import gsap from "gsap";
-const {
-  $ScrollTrigger: ScrollTrigger,
-} = useNuxtApp();
+const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp();
 
 const headerNav = ref();
 const aboutSelector = ref();

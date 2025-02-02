@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import gsap from "gsap";
+const { $gsap: gsap} = useNuxtApp();
 import { ExternalLink, X } from "lucide-vue-next";
 import type { ProjectDetail } from "~/interface";
 import { onClickOutside } from "#build/imports";

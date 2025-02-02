@@ -1,7 +1,6 @@
 <script setup>
-import gsap from "gsap";
 
-const { $ScrollTrigger: ScrollTrigger } = useNuxtApp();
+const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp();
 
 const aboutSelector = ref();
 const expertiseSelector = ref();

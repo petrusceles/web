@@ -1,5 +1,5 @@
 <script setup>
-import gsap from "gsap";
+const { $gsap: gsap } = useNuxtApp();
 
 const ctaSelector = ref();
 const getInTouchSelector = ref();

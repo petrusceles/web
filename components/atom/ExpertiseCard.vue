@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import gsap from "gsap";
+const { $gsap: gsap } = useNuxtApp();
 import type { Expertise } from "~/interface";
 
 const props = defineProps<Expertise>();

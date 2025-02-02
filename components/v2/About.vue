@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import gsap from "gsap";
+const { $gsap: gsap } = useNuxtApp();
 import { Briefcase, ExternalLink, GraduationCap } from "lucide-vue-next";
 import type { Experience } from "~/interface";
 

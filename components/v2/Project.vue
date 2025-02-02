@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { ProjectDetail } from "~/interface";
-import gsap from "gsap";
+const { $gsap: gsap } = useNuxtApp();
 
 const entities = [
   {
