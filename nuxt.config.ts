@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "nuxt-svgo",
     "@nuxtjs/robots",
     "@nuxtjs/sitemap",
+    "@vueuse/nuxt",
   ],
   build: {
     transpile: ["oh-vue-icons"],
@@ -16,7 +17,7 @@ export default defineNuxtConfig({
   fonts: {
     families: [
       {
-        name: "Murecho",
+        name: "Lexend",
         provider: "google",
       },
     ],
@@ -27,7 +28,7 @@ export default defineNuxtConfig({
     config: {
       theme: {
         fontFamily: {
-          sans: ["Murecho"],
+          sans: ["Lexend"],
           serif: ["Ms Madi"],
         },
         extend: {

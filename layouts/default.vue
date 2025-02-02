@@ -1,52 +1,74 @@
 <script setup>
 import gsap from "gsap";
+const {
+  $ScrollTrigger: ScrollTrigger,
+} = useNuxtApp();
 
 const headerNav = ref();
+const aboutSelector = ref();
+const expertiseSelector = ref();
+const projectSelector = ref();
 
-// const isLoading = useLoading();
-// const loadingPieceSelector = ref();
-// const loadingOuterSelector = ref();
-
-// const loadingSelector = ref();
-
-// const loadingPieceAnimation = ref();
-// const loadingOuterAnimation = ref();
-
-// watch(isLoading, (val, oldVal) => {
-//   if (!val && oldVal) {
-//     loadingOuterAnimation.value?.kill();
-//     loadingPieceAnimation.value?.kill();
-//     gsap.to("loading-selector", {
-//       y: -100,
-//       duration: 0.75,
-//       ease: "back.out",
-//       autoAlpha: 0,
-//     });
-//   }
-// });
-
-// onPrehydrate(() => {
-//   gsap.to(".loading-piece-selector", {
-//     rotate: "-180deg",
-//     repeat: -1,
-//     duration: 2,
-//     ease: "back.inOut(1.7)",
-//   });
-//   gsap.to(".loading-outer-selector", {
-//     rotate: "360deg",
-//     repeat: -1,
-//     duration: 3,
-//     ease: "power3.inOut",
-//   });
-// });
+const scrollTo = (section) => {
+  gsap.to(window, {
+    duration: 1,
+    ease: "power4.inOut",
+    scrollTo: { y: section, offsetY: 150 },
+  });
+};
 
 onMounted(() => {
-  gsap.from(headerNav.value, {
-    duration: 1.5,
-    y: -100,
-    autoAlpha: 0,
-    ease: "elastic.out(1,0.4)",
-  });
+  const selects = [
+    aboutSelector.value,
+    expertiseSelector.value,
+    projectSelector.value,
+  ];
+  const sections = ["#about", "#expertise", "#project"];
+  const starts = ["top+=100px center", "top center", "top center"];
+  const ends = ["bottom center", "bottom center", "bottom center"];
+
+  for (let i = 0; i < selects.length; i++) {
+    const selector = selects[i];
+    const section = sections[i];
+    gsap.set(selector, {
+      xPercent: -101,
+      zIndex: 10,
+    });
+    ScrollTrigger.create({
+      trigger: section,
+      start: starts[i],
+      end: ends[i],
+      scrub: true,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const xTranslation = progress * 100 - 101;
+        gsap.set(selector, { xPercent: xTranslation });
+      },
+      onLeave: () => {
+        gsap.to(selector, {
+          xPercent: 101,
+          duration: 0.3,
+          ease: "power3.inOut",
+        });
+      },
+    });
+    // const timeline = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: section,
+    //     pin: false,
+    //     start: "top center",
+    //     end: "400px bottom",
+    //     scrub: true,
+    //   },
+    // });
+    // timeline.to(selector, {
+    //   borderRightWidth: 2,
+    //   borderBottomWidth: 2,
+    //   borderTopWidth: 2,
+    //   borderLeftWidth: 2,
+    // });
+    // globalTimeline.push(timeline);
+  }
 });
 </script>
 
@@ -68,11 +90,11 @@ onMounted(() => {
       ref="loadingOuterSelector"
     >
       <div
-        class="h-full w-full rounded-full border border-slate-950 translate-x-1/3 -z-10 relative"
+        class="h-full w-full rounded-full border border-slate-400 translate-x-1/3 -z-10 relative"
       >
         <div
           ref="loadingPieceSelector"
-          class="w-[70%] h-[25%] rounded-full border loading-piece-selector border-slate-950 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+          class="w-[70%] h-[25%] rounded-full border loading-piece-selector border-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
         ></div>
       </div>
     </div>
@@ -82,25 +104,46 @@ onMounted(() => {
     class="flex justify-center text-sm gap-5 items-center container mx-auto top-8 z-50 fixed left-1/2 -translate-x-1/2"
   >
     <div
-      class="flex gap-5 rounded-full border border-slate-950 font-light items-center navigation shadow-md bg-white px-2 py-2 lg:py-3 lg:px-4 lg:gap-10"
+      class="flex gap-4 rounded-full border border-slate-400 font-bold items-center justify-center navigation shadow-md bg-white px-4 py-3 text-xs"
     >
-      <NuxtLink to="/"> Home </NuxtLink>
+      <button
+        class="rounded-full py-3 px-5 overflow-clip box-border relative"
+        @click="scrollTo('#about')"
+      >
+        <div
+          ref="aboutSelector"
+          class="background absolute w-full h-full bg-slate-400 top-1/2 left-0 -translate-y-1/2 z-10"
+        ></div>
+        <div class="z-50 relative">About</div>
+      </button>
 
-      <NuxtLink to="/portfolio">Portfolio</NuxtLink>
-      <NuxtLink to="/about">About</NuxtLink>
+      <button
+        class="rounded-full py-3 px-5 overflow-clip box-border relative"
+        @click="scrollTo('#expertise')"
+      >
+        <div class="z-50 relative">Expertise</div>
+
+        <div
+          ref="expertiseSelector"
+          class="background absolute w-full h-full bg-slate-400 top-1/2 left-0 -translate-y-1/2 z-10"
+        ></div>
+      </button>
+      <button
+        class="rounded-full py-3 px-5 overflow-clip box-border relative"
+        @click="scrollTo('#project')"
+      >
+        <div class="z-50 relative">Projects</div>
+
+        <div
+          ref="projectSelector"
+          class="background absolute w-full h-full bg-slate-400 top-1/2 left-0 -translate-y-1/2 z-10"
+        ></div>
+      </button>
     </div>
   </div>
-  <div class="relative h-full">
+  <div class="flex justify-center">
     <slot></slot>
   </div>
 </template>
 
-<style scoped>
-.navigation * {
-  @apply min-w-20 rounded-full border text-center py-1.5 text-xs border-transparent text-slate-500;
-}
-
-.router-link-active {
-  @apply border-slate-950 text-slate-950;
-}
-</style>
+<style scoped></style>

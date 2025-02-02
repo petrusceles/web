@@ -3,7 +3,7 @@ import { Flip } from "gsap/Flip";
 import { Observer } from "gsap/Observer";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { clamp, wrap } from "gsap";
+// ip
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Flip, Observer, ScrollToPlugin);
 }
@@ -16,6 +16,6 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   nuxtApp.provide("Observer", Observer);
   nuxtApp.provide("ScrollToPlugin", ScrollToPlugin);
-  //   nuxtApp.provide("clamp", clamp);
+  // nuxtApp.provide("clamp", clamp);
   //   nuxtApp.provide("wrap", wrap);
 });
