@@ -1,5 +1,4 @@
 <script setup>
-
 const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp();
 
 const aboutSelector = ref();
@@ -11,21 +10,14 @@ onMounted(() => {
     aboutSelector.value,
     expertiseSelector.value,
     projectSelector.value,
-    footerSelector.value,
   ];
-  const sections = ["#about", "#expertise", "#project", "#footer"];
+  const sections = ["#about", "#expertise", "#project"];
   const starts = [
     "top-=100px center",
     "top-=100px center",
     "top-=100px center",
-    "top-=100px center",
   ];
-  const ends = [
-    "bottom center",
-    "bottom center",
-    "bottom center",
-    "bottom center",
-  ];
+  const ends = ["bottom center", "bottom center", "bottom center"];
 
   for (let i = 0; i < selectors.length; i++) {
     const section = sections[i];
