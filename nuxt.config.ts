@@ -50,7 +50,7 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     head: {
-      titleTemplate: "%s - Petrus Caelestinus",
+      title: "Petrus Caelestinus",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
