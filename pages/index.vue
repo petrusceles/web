@@ -10,27 +10,33 @@ onMounted(() => {
     aboutSelector.value,
     expertiseSelector.value,
     projectSelector.value,
+    footerSelector.value,
   ];
-  const sections = ["#about", "#expertise", "#project"];
+  const sections = ["#about", "#expertise", "#project", "#footer"];
   const starts = [
     "top-=100px center",
-    "top-=100px center",
-    "top-=100px center",
+    "top+=50px center",
+    "top+=100px center",
+    "top-=250px center",
   ];
-  const ends = ["bottom center", "bottom center", "bottom center"];
+  const ends = [
+    "bottom center",
+    "bottom center",
+    "bottom center",
+    "bottom center",
+  ];
 
   for (let i = 0; i < selectors.length; i++) {
     const section = sections[i];
-    gsap.set(section, {
-      autoAlpha: 0,
-    });
+    gsap.set(section, { alpha: 0 });
     ScrollTrigger.create({
       trigger: section,
       start: starts[i],
       end: ends[i],
+      scrub: true,
       onEnter: () => {
-        gsap.set(section, { autoAlpha: 1 });
-        selectors[i]?.animation?.play();
+        gsap.set(section, { alpha: 1 });
+        gsap.add(selectors[i]?.animation?.play(), "<0.1");
       },
     });
   }
@@ -40,7 +46,7 @@ onMounted(() => {
   <div
     class="pb-24 text-slate-800 px-12 grid grid-cols-1 gap-16 max-w-[45rem] lg:max-w-[55rem] justify-items-center content-center lg:gap-20"
   >
-    <div class="h-14 lg:h-12"></div>
+    <div class="h-20 lg:h-12"></div>
     <section id="about">
       <V2About ref="aboutSelector" />
     </section>

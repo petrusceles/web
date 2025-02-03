@@ -21,8 +21,12 @@ onMounted(() => {
     projectSelector.value,
   ];
   const sections = ["#about", "#expertise", "#project"];
-  const starts = ["top+=100px center", "top center", "top center"];
-  const ends = ["bottom center", "bottom center", "bottom center"];
+  const starts = ["top center", "top center", "top center"];
+  const ends = [
+    "bottom-=100px center",
+    "bottom-=100px center",
+    "bottom-=100px center",
+  ];
 
   for (let i = 0; i < selects.length; i++) {
     const selector = selects[i];

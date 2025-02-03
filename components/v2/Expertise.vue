@@ -125,7 +125,7 @@ defineExpose({
       <h2 class="text-sm lg:text-lg">I build these kind of</h2>
       <p class="text-xl font-bold lg:text-4xl">Application</p>
     </div>
-    <div class="grid grid-cols-3 gap-5 lg:gap-8">
+    <div class="grid grid-cols-3 gap-5 lg:gap-8 mt-2">
       <AtomExpertiseCard
         ref="expertisesSelector"
         v-for="item in expertises"
@@ -133,7 +133,7 @@ defineExpose({
         :title="item.title"
       />
     </div>
-    <div class="grid grid-cols-1 gap-3 mt-5 lg:gap-6">
+    <div class="grid grid-cols-1 gap-6 mt-5 lg:gap-8">
       <p class="text-sm lg:text-lg" ref="topTitleSelector">
         Using these various
         <span class="text-xl font-bold lg:text-4xl">Tools :</span>

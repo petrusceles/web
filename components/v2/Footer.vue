@@ -12,7 +12,7 @@ const animation = computed(() => {
   const val = gsap.timeline();
 
   val.from(ctaSelector.value?.children, {
-    x: "100",
+    x: 30,
     duration: 1,
     ease: "back.out(1.2)",
     autoAlpha: 0,
@@ -22,7 +22,7 @@ const animation = computed(() => {
   val.from(
     getInTouchSelector.value,
     {
-      y: "100",
+      y: 30,
       duration: 1,
       autoAlpha: 0,
       ease: "back.out(1.2)",
@@ -33,7 +33,7 @@ const animation = computed(() => {
   val.from(
     titleSelector.value,
     {
-      y: 50,
+      y: 10,
       duration: 1,
       autoAlpha: 0,
       ease: "back.out(1.2)",
@@ -110,13 +110,11 @@ const emailSelector = ref();
 onMounted(() => {});
 
 defineExpose({
-  // animation,
+  animation,
 });
 </script>
 <template>
-  <div
-    class="grid grid-cols-1 gap-5 w-full justify-items-center py-16 lg:py-24"
-  >
+  <div class="grid grid-cols-1 gap-5 w-full justify-items-center">
     <div class="lg:flex grid grid-cols-1 gap-8 justify-center">
       <h1
         class="grid grid-cols-1 w-full justify-items-center"

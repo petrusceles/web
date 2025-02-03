@@ -91,14 +91,14 @@ defineExpose({
     :url="selectedProject.url"
     :title="selectedProject.title"
   />
-  <div class="container mx-auto grid grid-cols-1 gap-4 lg:gap-12">
+  <div class="container mx-auto grid grid-cols-1 gap-6 lg:gap-12">
     <h1 class="text-sm text-center lg:text-lg" ref="titleSelector">
       And here some
       <span class="text-xl font-bold px-1 lg:text-4xl">Projects</span> I've ever
       did
     </h1>
     <div
-      class="flex flex-wrap gap-x-12 items-center lg:gap-x-28 lg:gap-y-8 justify-center"
+      class="flex flex-wrap gap-x-12 gap-y-5 items-center lg:gap-x-28 lg:gap-y-8 justify-center"
     >
       <AtomProjectCard
         @show="

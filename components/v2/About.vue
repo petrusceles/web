@@ -119,8 +119,8 @@ defineExpose({
 </script>
 <template>
   <div class="container mx-auto grid grid-cols-1 justify-items-center gap-5">
-    <div class="grid grid-cols-1 place-items-center gap-y-6 lg:gap-y-8">
-      <div class="flex gap-4 justify-start w-full">
+    <div class="grid grid-cols-1 place-items-center gap-y-10 lg:gap-y-8">
+      <div class="flex gap-4 justify-center w-full">
         <div
           class="h-32 w-32 lg:w-52 lg:h-52 rounded-full bg-slate-100 overflow-hidden p-1 lg:p-2 justify-self-end"
           ref="pictureSelector"
@@ -179,22 +179,24 @@ defineExpose({
       </div>
     </div>
 
-    <h1
-      class="grid grid-cols-1 justify-items-center text-sm lg:text-lg text-center mt-3"
-      ref="experienceTitleSelector"
-    >
-      <span>Simply, my recent</span>
-      <span class="text-xl lg:text-4xl px-1 font-bold">
-        Education & Work Experience</span
+    <div class="grid grid-cols-1 w-full gap-y-6 lg:gap-y-8">
+      <h1
+        class="grid grid-cols-1 justify-items-start text-sm lg:text-lg mt-3"
+        ref="experienceTitleSelector"
       >
-    </h1>
-    <div class="grid grid-cols-1 gap-4 w-fit">
-      <AtomExperienceCard
-        ref="experienceCardsSelector"
-        v-for="experience of experiences"
-        :entities="experience.entities"
-        :icon="experience.icon"
-      />
+        <span>Simply, my recent</span>
+        <span class="text-xl lg:text-4xl font-bold">
+          Education & Work Experience</span
+        >
+      </h1>
+      <div class="grid grid-cols-1 gap-4 w-fit">
+        <AtomExperienceCard
+          ref="experienceCardsSelector"
+          v-for="experience of experiences"
+          :entities="experience.entities"
+          :icon="experience.icon"
+        />
+      </div>
     </div>
   </div>
 </template>
