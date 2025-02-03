@@ -4,8 +4,8 @@ import { SpeedInsights } from "@vercel/speed-insights/nuxt";
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk
-      ? `${titleChunk} - Celes's Portfolio`
-      : "Celes's Portfolio";
+      ? `${titleChunk} - Petrus Caelestinus`
+      : "Petrus Caelestinus";
   },
 });
 </script>
