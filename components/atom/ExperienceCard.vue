@@ -11,7 +11,7 @@ const animation = computed(() => {
   const tl = gsap.timeline({ paused: true });
   tl.from(iconSelector.value, {
     y: 50,
-    duration: 0.5,
+    duration: 0.75,
     ease: "back.out(1.2)",
     autoAlpha: 0,
   });
@@ -19,7 +19,7 @@ const animation = computed(() => {
     lineSelector.value,
     {
       scaleY: 0,
-      duration: 0.5,
+      duration: 0.75,
       ease: "back.out(1.2)",
       autoAlpha: 0,
     },

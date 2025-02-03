@@ -43,8 +43,8 @@ const animation = computed(() => {
   const tl = gsap.timeline({ paused: true });
 
   tl.from(pictureSelector.value, {
-    y: 50,
-    duration: 0.5,
+    y: 30,
+    duration: 0.75,
     ease: "back.out(1.2)",
     autoAlpha: 0,
   });
@@ -52,8 +52,8 @@ const animation = computed(() => {
   tl.from(
     nameSelector.value?.children,
     {
-      x: 50,
-      duration: 0.4,
+      x: 30,
+      duration: 0.6,
       ease: "back.out(1.2)",
       autoAlpha: 0,
       stagger: 0.1,
@@ -64,8 +64,8 @@ const animation = computed(() => {
   tl.from(
     descriptionContainerSelector.value,
     {
-      y: 50,
-      duration: 0.5,
+      y: 30,
+      duration: 0.75,
       ease: "back.out(1.2)",
       autoAlpha: 0,
     },
@@ -76,7 +76,7 @@ const animation = computed(() => {
     descriptionContentSelector.value,
     {
       y: -10,
-      duration: 0.5,
+      duration: 0.75,
       ease: "back.out(1.2)",
       autoAlpha: 0,
     },
@@ -87,18 +87,18 @@ const animation = computed(() => {
     descriptionTitleSelector.value,
     {
       y: 10,
-      duration: 0.5,
+      duration: 0.75,
       ease: "back.out(1.2)",
       autoAlpha: 0,
     },
-    ">-0.2"
+    "<0.2"
   );
 
   tl.from(
     experienceTitleSelector.value?.children,
     {
       y: -10,
-      duration: 0.5,
+      duration: 0.75,
       ease: "back.out(1.2)",
       autoAlpha: 0,
       stagger: 0.2,
@@ -108,7 +108,7 @@ const animation = computed(() => {
 
   for (let i = 0; i < experienceCardsSelector.value?.length; i++) {
     const element = experienceCardsSelector.value[i];
-    tl.add(element?.animation?.play(), "<0.0");
+    tl.add(element?.animation?.play(), "<0.3");
   }
   return tl;
 });

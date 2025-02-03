@@ -10,8 +10,8 @@ const animation = computed(() => {
   });
   tl.from(containerSelector.value?.children, {
     y: 50,
-    stagger: 0.15,
-    duration: 0.5,
+    stagger: 0.2,
+    duration: 0.75,
     ease: "back.out(1.2)",
     autoAlpha: 0,
   });

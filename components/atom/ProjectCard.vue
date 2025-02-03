@@ -1,5 +1,6 @@
 <script setup>
-const { $gsap: gsap} = useNuxtApp();
+import gsap from "gsap";
+// const { $gsap: gsap } = useNuxtApp();
 
 const props = defineProps({
   name: {
@@ -25,9 +26,16 @@ const props = defineProps({
 
 const imagesSelector = ref();
 const descriptionSelector = ref();
+const globalSelector = ref();
+const frontSelector = ref();
+const backSelector = ref();
+const stackSelector = ref();
 const isAnimating = ref(false);
 
 const animation = computed(() => {
+  gsap.set(globalSelector.value, {
+    pointerEvents: "none",
+  });
   const tl = gsap.timeline({
     onStart: () => {
       isAnimating.value = true;
@@ -37,52 +45,71 @@ const animation = computed(() => {
     },
   });
 
-  tl.from(imagesSelector.value?.children, {
-    y: 50,
-    duration: 0.75,
+  tl.from(frontSelector.value, {
+    y: 100,
+    duration: 0.5,
     ease: "back.out",
     autoAlpha: 0,
-    stagger: 0.2,
   });
+  tl.from(
+    backSelector.value,
+    {
+      y: 50,
+      duration: 0.5,
+      ease: "back.out",
+      autoAlpha: 0,
+    },
+    "<0.2"
+  );
+  tl.from(
+    stackSelector.value,
+    {
+      y: -50,
+      duration: 0.5,
+      ease: "back.out",
+      autoAlpha: 0,
+    },
+    "<0.2"
+  );
   tl.from(
     descriptionSelector.value?.children,
     {
-      y: -10,
-      duration: 0.75,
+      y: -20,
+      duration: 0.5,
       ease: "back.out",
       autoAlpha: 0,
       stagger: 0.2,
     },
     "<0.3"
   );
+  tl.set(globalSelector.value, {
+    pointerEvents: "auto",
+  });
   return tl;
 });
 defineExpose({
   animation,
 });
 
-const frontSelector = ref();
-const backSelector = ref();
 const hoverAnimation = computed(() => {
   const tl = gsap.timeline({ paused: true });
-  if (!isAnimating.value) {
-    tl.to(frontSelector.value, {
+  tl.to(frontSelector.value, {
+    duration: 0.2,
+    translateX: -30,
+    translateY: 30,
+    ease: "power3.inOut",
+  });
+  tl.to(
+    backSelector.value,
+    {
       duration: 0.2,
-      translateX: -30,
-      translateY: 30,
+      translateX: 50,
+      translateY: -10,
       ease: "power3.inOut",
-    });
-    tl.to(
-      backSelector.value,
-      {
-        duration: 0.2,
-        translateX: 50,
-        translateY: -10,
-        ease: "power3.inOut",
-      },
-      "<0.0"
-    );
-  }
+    },
+    "<0.0"
+  );
+  // }
   return tl;
 });
 onMounted(() => {});
@@ -91,21 +118,24 @@ const emits = defineEmits(["show"]);
 </script>
 <template>
   <div
+    ref="globalSelector"
     class="grid grid-cols-1 w-72 min-w-60 lg:w-80 cursor-pointer"
     @mouseover="
       () => {
-        hoverAnimation?.play();
+        !isAnimating && hoverAnimation?.play();
       }
     "
     @mouseleave="
       () => {
-        hoverAnimation?.reverse();
+        !isAnimating && hoverAnimation?.reverse();
       }
     "
     @click="
       () => {
-        hoverAnimation?.reverse();
-        emits('show');
+        if (!isAnimating) {
+          hoverAnimation?.reverse();
+          emits('show');
+        }
       }
     "
   >
@@ -125,6 +155,7 @@ const emits = defineEmits(["show"]);
 
       <div
         class="rounded-2xl -skew-x-6 border border-slate-400 px-3 text-center py-1.5 w-fit absolute z-40 right-4 bottom-1/2 translate-y-1/2 bg-white border-dashed"
+        ref="stackSelector"
       >
         <p class="text-xs font-light lg:text-sm">{{ props.stack }}</p>
       </div>

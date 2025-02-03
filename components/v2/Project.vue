@@ -68,7 +68,7 @@ const animation = computed(() => {
   });
   for (let i = 0; i < projectCardSelector.value?.length; i++) {
     const element = projectCardSelector.value[i];
-    tl.add(element?.animation?.play(), i == 0 ? "<0.0" : "<0.2");
+    tl.add(element?.animation?.play(), i == 0 ? "<0.0" : "<0.3");
   }
   return tl;
 });
