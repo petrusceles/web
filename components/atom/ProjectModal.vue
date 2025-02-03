@@ -63,7 +63,7 @@ onClickOutside(modalContent, () => {
       <div class="flex-shrink flex justify-between gap-3 md:gap-10">
         <h3 class="text-xl font-bold lg:text-2xl">{{ props.title }}</h3>
       </div>
-      <div class="flex-grow flex flex-col gap-6 h-fit w-full">
+      <div class="flex-grow flex flex-col gap-3 h-fit w-full ">
         <div class="border border-slate-40 w-full rounded-2xl p-1">
           <div class="overflow-hidden rounded-xl h-full w-full">
             <img

@@ -149,7 +149,7 @@ defineExpose({
             rel="noopener noreferrer"
             class="text-xs lg:text-base rounded-full border border-slate-400 py-2 px-4 w-fit mt-2 flex items-center gap-2"
           >
-            <ExternalLink class="h-5 w-5 lg:h-7 lg:w-7" />
+            <ExternalLink class="lg:h-5 lg:w-5 w-4 h-4" />
             <span> Open Celes's CV</span>
           </a>
         </div>

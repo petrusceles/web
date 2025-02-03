@@ -1,5 +1,6 @@
 <script setup>
-const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp();
+const { $gsap: gsap } = useNuxtApp();
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const headerNav = ref();
 const aboutSelector = ref();
@@ -42,7 +43,7 @@ onMounted(() => {
       scrub: true,
       onUpdate: (self) => {
         const progress = self.progress;
-        const xTranslation = progress * 100 - 101;
+        const xTranslation = progress * 101 - 101;
         gsap.set(selector, { xPercent: xTranslation });
       },
       onLeave: () => {
@@ -57,7 +58,7 @@ onMounted(() => {
 
   gsap.from(headerNav.value, {
     duration: 1.5,
-    y: -100,
+    y: -101,
     autoAlpha: 0,
     ease: "elastic.out(1,0.4)",
   });
@@ -106,7 +107,10 @@ onMounted(() => {
           ref="aboutSelector"
           class="background absolute w-full h-full bg-slate-400 top-1/2 left-0 -translate-y-1/2 z-10"
         ></div>
-        <div class="z-50 relative">About</div>
+        <div
+          class="background absolute w-[95%] h-[90%] bg-white top-1/2 left-1/2 -translate-y-1/2 z-20 rounded-full -translate-x-1/2"
+        ></div>
+        <div class="z-50 relative bg-white rounded-full">About</div>
       </button>
 
       <button
@@ -115,6 +119,9 @@ onMounted(() => {
       >
         <div class="z-50 relative">Expertise</div>
 
+        <div
+          class="background absolute w-[95%] h-[90%] bg-white top-1/2 left-1/2 -translate-y-1/2 z-20 rounded-full -translate-x-1/2"
+        ></div>
         <div
           ref="expertiseSelector"
           class="background absolute w-full h-full bg-slate-400 top-1/2 left-0 -translate-y-1/2 z-10"
@@ -126,6 +133,9 @@ onMounted(() => {
       >
         <div class="z-50 relative">Projects</div>
 
+        <div
+          class="background absolute w-[95%] h-[90%] bg-white top-1/2 left-1/2 -translate-y-1/2 z-20 rounded-full -translate-x-1/2"
+        ></div>
         <div
           ref="projectSelector"
           class="background absolute w-full h-full bg-slate-400 top-1/2 left-0 -translate-y-1/2 z-10"
