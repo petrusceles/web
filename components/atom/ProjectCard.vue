@@ -19,9 +19,6 @@ const props = defineProps({
     required: true,
     type: Array,
   },
-  url: {
-    type: String,
-  },
 });
 
 const imagesSelector = ref();

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const { $gsap: gsap } = useNuxtApp();
-import { ExternalLink, X } from "lucide-vue-next";
+import { ExternalLink, GitBranch, X } from "lucide-vue-next";
 import type { ProjectDetail } from "~/interface";
 import { onClickOutside } from "#build/imports";
 
@@ -63,7 +63,7 @@ onClickOutside(modalContent, () => {
       <div class="flex-shrink flex justify-between gap-3 md:gap-10">
         <h3 class="text-xl font-bold lg:text-2xl">{{ props.title }}</h3>
       </div>
-      <div class="flex-grow flex flex-col gap-3 h-fit w-full ">
+      <div class="flex-grow flex flex-col gap-3 h-fit w-full">
         <div class="border border-slate-40 w-full rounded-2xl p-1">
           <div class="overflow-hidden rounded-xl h-full w-full">
             <img
@@ -77,16 +77,28 @@ onClickOutside(modalContent, () => {
           <p class="text-xs text-justify lg:text-sm font-light">
             {{ props.content }}
           </p>
-          <a
-            v-if="props.url"
-            :href="props.url"
-            rel="noopener noreferrer"
-            target="_blank"
-            class="border border-slate-400 w-fit px-6 py-2 rounded-full flex gap-2 items-center justify-center"
-          >
-            <ExternalLink class="h-4 w-4 lg:h-5 lg:w-5" />
-            <span class="text-sm lg:text-base"> Go to Project</span>
-          </a>
+          <div class="flex gap-3 items-center">
+            <a
+              v-if="props.repo"
+              :href="props.repo"
+              rel="noopener noreferrer"
+              target="_blank"
+              class="border border-slate-400 w-fit px-6 py-2 rounded-full flex gap-2 items-center justify-center"
+            >
+              <GitBranch class="h-4 w-4 lg:h-5 lg:w-5" />
+              <span class="text-sm lg:text-base">Git Repository</span>
+            </a>
+            <a
+              v-if="props.url"
+              :href="props.url"
+              rel="noopener noreferrer"
+              target="_blank"
+              class="border border-slate-400 w-fit px-6 py-2 rounded-full flex gap-2 items-center justify-center"
+            >
+              <ExternalLink class="h-4 w-4 lg:h-5 lg:w-5" />
+              <span class="text-sm lg:text-base">Open Project</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

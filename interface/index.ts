@@ -19,6 +19,7 @@ interface ProjectDetail {
   image: string;
   content: string;
   url?: string;
+  repo?: string;
 }
 
 export type { Experience, ExperienceDetail, Expertise, ProjectDetail };

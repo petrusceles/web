@@ -11,7 +11,7 @@ const entities = [
       "/img/appobjectblur/page2.jpeg",
       "/img/appobjectblur/page3.png",
     ],
-    url: "https://github.com/petrusceles/YOLOv5-Mobile-Automatic-Object-Blurring-App.git",
+    repo: "https://github.com/petrusceles/YOLOv5-Mobile-Automatic-Object-Blurring-App.git",
     stack: "YOLOv5, Kotlin, PyTorch",
     content:
       "Developed a high-performance Android app for automatic object blurring, achieving 90% accuracy and 26 fps using YOLOv5n6 and SORT. Enhanced frame rate by 500% with asynchronous processing.",
@@ -36,7 +36,8 @@ const entities = [
       "/img/naqos/page2.png",
       "/img/naqos/page3.png",
     ],
-    url: "https://github.com/petrusceles/Naqos-FE.git",
+    repo: "https://github.com/petrusceles/Naqos-FE.git",
+    url: "https://naqos-fe.vercel.app",
     stack: "ReactJs, ExpressJs, MongoDB",
     content:
       "Developed an app that connects boarding house owners and seekers, allowing owners to list properties and set flexible pricing for different durations. Seekers can search for accommodations, view details, and book their stay, with payment confirmation handled through photo uploads. Implemented refresh tokens for added security, with sessions and tokens stored securely.",
@@ -88,6 +89,7 @@ defineExpose({
     ref="projectModal"
     :content="selectedProject.content"
     :image="selectedProject.image"
+    :repo="selectedProject.repo"
     :url="selectedProject.url"
     :title="selectedProject.title"
   />
@@ -107,6 +109,7 @@ defineExpose({
               content: item.content,
               image: item.images[2],
               title: item.name,
+              repo: item.repo,
               url: item.url,
             };
             projectModal?.show();
@@ -118,7 +121,6 @@ defineExpose({
         :images="item.images"
         :description="item.description"
         :stack="item.stack"
-        :url="item.url"
       />
     </div>
   </div>
