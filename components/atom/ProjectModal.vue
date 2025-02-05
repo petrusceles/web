@@ -73,11 +73,13 @@ onClickOutside(modalContent, () => {
             />
           </div>
         </div>
-        <div class="grid grid-cols-1 w-full gap-3">
+        <div class="grid grid-cols-1 w-full gap-2 lg:gap-3">
           <p class="text-xs text-justify lg:text-sm font-light">
             {{ props.content }}
           </p>
-          <div class="flex gap-3 items-center">
+          <div
+            class="justify-items-end flex flex-wrap gap-2 lg:gap-3 items-center"
+          >
             <a
               v-if="props.repo"
               :href="props.repo"
@@ -86,7 +88,7 @@ onClickOutside(modalContent, () => {
               class="border border-slate-400 w-fit px-6 py-2 rounded-full flex gap-2 items-center justify-center"
             >
               <GitBranch class="h-4 w-4 lg:h-5 lg:w-5" />
-              <span class="text-sm lg:text-base">Git Repository</span>
+              <span class="text-xs lg:text-base">Git Repository</span>
             </a>
             <a
               v-if="props.url"
@@ -96,7 +98,7 @@ onClickOutside(modalContent, () => {
               class="border border-slate-400 w-fit px-6 py-2 rounded-full flex gap-2 items-center justify-center"
             >
               <ExternalLink class="h-4 w-4 lg:h-5 lg:w-5" />
-              <span class="text-sm lg:text-base">Open Project</span>
+              <span class="text-xs lg:text-base">Open Project</span>
             </a>
           </div>
         </div>
